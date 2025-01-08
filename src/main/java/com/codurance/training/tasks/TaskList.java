@@ -26,7 +26,7 @@ public final class TaskList {
                 add(commandRest[1]);
                 break;
             case "check":
-                check(commandRest[1]);
+                new CheckCommand(writer, projects).execute(Integer.parseInt(commandRest[1]));
                 break;
             case "uncheck":
                 uncheck(commandRest[1]);
