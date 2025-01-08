@@ -32,4 +32,22 @@ public class TasksTest {
         String expected = "[ ] 1: Task 1\n" + "[x] 2: Task 2\n";
         assertEquals(expected,  tasks.format());
     }
+
+    @Test
+    public void togglesATaskAsDoneWithMatchingId() {
+        Tasks tasks = new Tasks();
+        tasks.add(new Task(1, "Task 1", false));
+
+        tasks.toggleTaskWithId(1, true);
+        assertEquals("[x] 1: Task 1\n",  tasks.format());
+    }
+
+    @Test
+    public void togglesATaskAsNotDoneWithMatchingId() {
+        Tasks tasks = new Tasks();
+        tasks.add(new Task(1, "Task 1", true));
+
+        tasks.toggleTaskWithId(1, false);
+        assertEquals("[ ] 1: Task 1\n",  tasks.format());
+    }
 }

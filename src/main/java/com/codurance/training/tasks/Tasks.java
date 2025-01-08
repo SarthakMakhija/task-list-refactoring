@@ -11,4 +11,14 @@ public class Tasks extends ArrayList<Task> {
         }
         return formatted.toString();
     }
+
+    boolean toggleTaskWithId(int id, boolean done) {
+        for (Task task : this) {
+            if (task.getId() == id) {
+                task.setDone(done);
+                return true;
+            }
+        }
+        return false;
+    }
 }

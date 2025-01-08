@@ -82,20 +82,10 @@ public final class TaskList {
         int id = Integer.parseInt(idString);
         for (Map.Entry<String, Tasks> project : projects.entrySet()) {
             Tasks tasks = project.getValue();
-            if (toggleTaskWithId(done, tasks, id)) return;
+            if (tasks.toggleTaskWithId(id, done)) return;
         }
         out.printf("Could not find a task with an ID of %d.", id);
         out.println();
-    }
-
-    private static boolean toggleTaskWithId(boolean done, Tasks tasks, int id) {
-        for (Task task : tasks) {
-            if (task.getId() == id) {
-                task.setDone(done);
-                return true;
-            }
-        }
-        return false;
     }
 
     private long nextId() {
