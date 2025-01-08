@@ -14,15 +14,11 @@ public class Tasks extends ArrayList<Task> {
 
     boolean toggleTaskWithId(int id, boolean done) {
         for (Task task : this) {
-            if (matchesId(id, task)) {
+            if (task.matchesId(id)) {
                 task.setDone(done);
                 return true;
             }
         }
         return false;
-    }
-
-    private static boolean matchesId(int id, Task task) {
-        return task.getId() == id;
     }
 }

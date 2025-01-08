@@ -2,7 +2,7 @@ package com.codurance.training.tasks;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class TaskTest {
 
@@ -16,5 +16,17 @@ public class TaskTest {
     public void formatANotDoneTask() {
         Task task = new Task(1, "Task 1", false);
         assertEquals("[ ] 1: Task 1\n", task.format());
+    }
+
+    @Test
+    public void matchesId() {
+        Task task = new Task(1, "Task 1", false);
+        assertTrue(task.matchesId(1));
+    }
+
+    @Test
+    public void doesNotMatchId() {
+        Task task = new Task(1, "Task 2", false);
+        assertFalse(task.matchesId(2));
     }
 }

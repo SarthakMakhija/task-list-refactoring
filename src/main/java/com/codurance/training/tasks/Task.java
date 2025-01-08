@@ -15,6 +15,10 @@ public final class Task {
         return String.format("[%c] %d: %s%n", (this.isDone() ? 'x' : ' '), this.getId(), this.getDescription());
     }
 
+    boolean matchesId(int id) {
+        return this.getId() == id;
+    }
+
     public long getId() {
         return id;
     }
