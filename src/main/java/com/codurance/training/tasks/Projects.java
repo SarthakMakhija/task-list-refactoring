@@ -1,7 +1,6 @@
 package com.codurance.training.tasks;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class Projects extends LinkedHashMap<String, Project> {
 
@@ -12,39 +11,42 @@ public class Projects extends LinkedHashMap<String, Project> {
     void addTaskToProjectWithName(String projectName, Task task) {
         Project project = this.get(projectName);
         if (project == null) {
-            throw new IllegalArgumentException("Unknown project: " + project);
+            throw new IllegalArgumentException("Unknown project: " + projectName);
         }
         project.addTask(task);
     }
 
     boolean toggleTaskWithId(int id, boolean done) {
-        for (Map.Entry<String, Project> project : this.entrySet()) {
-            if (project.getValue().tasks.toggleTaskWithId(id, done)) return true;
-        }
-        return false;
+        return this.values().stream().anyMatch((Project project) -> project.toggleTaskWithId(id, done));
     }
 
     String format() {
         StringBuilder formatted = new StringBuilder();
-        for (Map.Entry<String, Project> project : this.entrySet()) {
-            formatted.append(project.getKey());
-            formatted.append("\n");
-            formatted.append(project.getValue().tasks.format());
-        }
+        this.values().stream().map(Project::format).forEach(formatted::append);
         return formatted.toString();
     }
 }
 
 class Project {
-    private final String name;
+    final String name;
     final Tasks tasks;
 
-    public Project(String name) {
+    Project(String name) {
         this.name = name;
         this.tasks = new Tasks();
     }
 
-    public void addTask(Task task) {
+    void addTask(Task task) {
         this.tasks.add(task);
+    }
+
+    boolean toggleTaskWithId(int id, boolean done) {
+        return this.tasks.toggleTaskWithId(id, done);
+    }
+
+    String format() {
+        return this.name +
+                "\n" +
+                this.tasks.format();
     }
 }
