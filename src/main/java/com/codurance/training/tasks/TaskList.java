@@ -2,7 +2,6 @@ package com.codurance.training.tasks;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,7 @@ import static java.lang.System.out;
 
 public final class TaskList {
 
-    private final Map<String, List<Task>> projects = new LinkedHashMap<>();
+    private final Map<String, Tasks> projects = new LinkedHashMap<>();
     private final Writer writer;
     private long lastId = 0;
 
@@ -41,18 +40,10 @@ public final class TaskList {
     }
 
     private void show() throws IOException {
-        for (Map.Entry<String, List<Task>> project : projects.entrySet()) {
+        for (Map.Entry<String, Tasks> project : projects.entrySet()) {
             writer.write(project.getKey());
             writer.write("\n");
-            List<Task> tasks = project.getValue();
-            format(tasks, writer);
-        }
-    }
-
-    //proves that the method does not belong here, it iterates over tasks. Hence, it should go to List<Task>/
-    private static void format(List<Task> tasks, Writer writer) throws IOException {
-        for (Task task : tasks) {
-            writer.write(task.format());
+            writer.write(project.getValue().format());
         }
     }
 
@@ -68,7 +59,7 @@ public final class TaskList {
     }
 
     private void addProject(String name) {
-        projects.put(name, new ArrayList<>());
+        projects.put(name, new Tasks());
     }
 
     private void addTask(String project, String description) {
@@ -89,7 +80,7 @@ public final class TaskList {
 
     private void setDone(String idString, boolean done) {
         int id = Integer.parseInt(idString);
-        for (Map.Entry<String, List<Task>> project : projects.entrySet()) {
+        for (Map.Entry<String, Tasks> project : projects.entrySet()) {
             for (Task task : project.getValue()) {
                 if (task.getId() == id) {
                     task.setDone(done);
