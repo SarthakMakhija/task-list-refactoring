@@ -1,9 +1,6 @@
 package com.codurance.training.tasks;
 
-import java.io.IOException;
 import java.io.Writer;
-
-import static java.lang.System.out;
 
 public final class TaskList {
 
@@ -29,15 +26,11 @@ public final class TaskList {
                 new CheckCommand(writer, projects).execute(Integer.parseInt(commandRest[1]));
                 break;
             case "uncheck":
-                uncheck(commandRest[1]);
+                new UncheckCommand(writer, projects).execute(Integer.parseInt(commandRest[1]));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown command: " + command);
         }
-    }
-
-    private void show() throws IOException {
-        this.writer.write(this.projects.format());
     }
 
     private void add(String commandLine) {
@@ -57,21 +50,6 @@ public final class TaskList {
 
     private void addTask(String project, String description) {
         projects.addTaskToProjectWithName(project, new Task(nextId(), description, false));
-    }
-
-    private void check(String idString) {
-        setDone(idString, true);
-    }
-
-    private void uncheck(String idString) {
-        setDone(idString, false);
-    }
-
-    private void setDone(String idString, boolean done) {
-        int id = Integer.parseInt(idString);
-        if (projects.toggleTaskWithId(id, done)) return;
-        out.printf("Could not find a task with an ID of %d.", id);
-        out.println();
     }
 
     private long nextId() {
