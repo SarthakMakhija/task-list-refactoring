@@ -1,25 +1,17 @@
 package com.codurance.training.tasks;
 
+import java.io.IOException;
 import java.io.Writer;
 
 public final class TaskList {
 
     private final Projects projects = new Projects();
+    private final AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
     private final Writer writer;
-    private long lastId = 0;
 
     public TaskList(Writer writer) {
         this.writer = writer;
     }
-
-    /**
-     * command parsing
-     * command arguments
-     * - CommandArguments (maybe?)
-     * command execution decision-making
-     * command execution
-     * - Commands with a switch and multiple commands for execution
-     */
 
     public void execute(String commandLine) throws Exception {
         String[] parts = commandLine.split(" ", 2);
@@ -42,26 +34,14 @@ public final class TaskList {
         }
     }
 
-    private void add(String commandLine) {
+    private void add(String commandLine) throws IOException {
         String[] subcommandRest = commandLine.split(" ", 2);
         String subcommand = subcommandRest[0];
         if (subcommand.equals("project")) {
-            addProject(subcommandRest[1]);
+            new AddProjectCommand(projects).execute(new String[]{subcommandRest[1]});
         } else if (subcommand.equals("task")) {
             String[] projectTask = subcommandRest[1].split(" ", 2);
-            addTask(projectTask[0], projectTask[1]);
+            addTaskCommand.execute(projectTask);
         }
-    }
-
-    private void addProject(String name) {
-        projects.addProject(name);
-    }
-
-    private void addTask(String project, String description) {
-        projects.addTaskToProjectWithName(project, new Task(nextId(), description, false));
-    }
-
-    private long nextId() {
-        return ++lastId;
     }
 }
