@@ -9,7 +9,7 @@ public class ProjectsTest {
     @Test
     public void formatProjectsWithASingleProject() {
         Projects projects = new Projects();
-        projects.put("caizin", new Tasks());
+        projects.addProject("caizin");
 
         Tasks tasks = projects.get("caizin");
         tasks.add(new Task(1, "Task 1", true));
@@ -21,8 +21,8 @@ public class ProjectsTest {
     @Test
     public void formatProjectsWithACoupleOfProjects() {
         Projects projects = new Projects();
-        projects.put("caizin", new Tasks());
-        projects.put("database", new Tasks());
+        projects.addProject("caizin");
+        projects.addProject("database");
 
         projects.get("caizin").add(new Task(1, "Task 1", true));
         projects.get("database").add(new Task(2, "Task 2", true));

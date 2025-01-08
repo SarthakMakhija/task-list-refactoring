@@ -5,6 +5,10 @@ import java.util.Map;
 
 public class Projects extends LinkedHashMap<String, Tasks> {
 
+    void addProject(String name) {
+        this.put(name, new Tasks());
+    }
+
     String format() {
         StringBuilder formatted = new StringBuilder();
         for (Map.Entry<String, Tasks> project : this.entrySet()) {
