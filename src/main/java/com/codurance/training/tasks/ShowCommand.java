@@ -12,7 +12,7 @@ public class ShowCommand {
         this.projects = projects;
     }
 
-    void execute() throws IOException {
+    void execute(String[] arguments) throws IOException {
         this.writer.write(this.projects.format());
     }
 }

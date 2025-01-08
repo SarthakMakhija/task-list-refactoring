@@ -13,7 +13,8 @@ public class UncheckCommand {
         this.projects = projects;
     }
 
-    void execute(int taskId) throws IOException {
+    void execute(String[] arguments) throws IOException {
+        int taskId = Integer.parseInt(arguments[0]);
         if (projects.toggleTaskWithId(taskId, false)) return;
         writer.write(String.format("Could not find a task with an ID of %d\n", taskId));
     }

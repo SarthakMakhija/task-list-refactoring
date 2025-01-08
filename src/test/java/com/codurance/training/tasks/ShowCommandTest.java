@@ -18,7 +18,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute();
+        command.execute(null);
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, writer.toString());
@@ -34,7 +34,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", false));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute();
+        command.execute(null);
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[ ] 2: Task 2\n";
         assertEquals(expected, writer.toString());
@@ -50,7 +50,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", true));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute();
+        command.execute(null);
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[x] 2: Task 2\n";
         assertEquals(expected, writer.toString());

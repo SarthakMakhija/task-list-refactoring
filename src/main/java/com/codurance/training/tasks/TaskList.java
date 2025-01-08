@@ -12,21 +12,30 @@ public final class TaskList {
         this.writer = writer;
     }
 
+    /**
+     * command parsing
+     * command arguments
+     * - CommandArguments (maybe?)
+     * command execution decision-making
+     * command execution
+     * - Commands with a switch and multiple commands for execution
+     */
+
     public void execute(String commandLine) throws Exception {
-        String[] commandRest = commandLine.split(" ", 2);
-        String command = commandRest[0];
+        String[] parts = commandLine.split(" ", 2);
+        String command = parts[0];
         switch (command) {
             case "show":
-                new ShowCommand(writer, projects).execute();
+                new ShowCommand(writer, projects).execute(null);
                 break;
             case "add":
-                add(commandRest[1]);
+                add(parts[1]);
                 break;
             case "check":
-                new CheckCommand(writer, projects).execute(Integer.parseInt(commandRest[1]));
+                new CheckCommand(writer, projects).execute(new String[]{parts[1]});
                 break;
             case "uncheck":
-                new UncheckCommand(writer, projects).execute(Integer.parseInt(commandRest[1]));
+                new UncheckCommand(writer, projects).execute(new String[]{parts[1]});
                 break;
             default:
                 throw new IllegalArgumentException("Unknown command: " + command);

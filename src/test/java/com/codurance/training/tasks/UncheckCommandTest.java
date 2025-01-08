@@ -18,7 +18,7 @@ public class UncheckCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true));
 
         UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
-        uncheckCommand.execute(1);
+        uncheckCommand.execute(new String[]{"1"});
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, projects.format());
