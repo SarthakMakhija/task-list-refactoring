@@ -2,7 +2,6 @@ package com.codurance.training.tasks;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 import java.util.Map;
 
 import static java.lang.System.out;
@@ -58,15 +57,7 @@ public final class TaskList {
     }
 
     private void addTask(String project, String description) {
-        addTaskToProjectWithName(project, new Task(nextId(), description, false));
-    }
-
-    private void addTaskToProjectWithName(String project, Task task) {
-        List<Task> projectTasks = projects.get(project);
-        if (projectTasks == null) {
-            throw new IllegalArgumentException("Unknown project: " + project);
-        }
-        projectTasks.add(task);
+        projects.addTaskToProjectWithName(project, new Task(nextId(), description, false));
     }
 
     private void check(String idString) {
