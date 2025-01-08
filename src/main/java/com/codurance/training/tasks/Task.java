@@ -12,19 +12,11 @@ public final class Task {
     }
 
     String format() {
-        return String.format("[%c] %d: %s%n", (this.isDone() ? 'x' : ' '), id, this.getDescription());
+        return String.format("[%c] %d: %s%n", (done ? 'x' : ' '), id, description);
     }
 
     boolean matchesId(int id) {
         return this.id == id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public boolean isDone() {
-        return done;
     }
 
     public void setDone(boolean done) {
