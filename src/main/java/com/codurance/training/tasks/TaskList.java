@@ -40,6 +40,11 @@ public final class TaskList {
     }
 
     private void show() throws IOException {
+        format(projects, writer);
+    }
+
+    //format does not belong here, it belongs to Map<String, Tasks>.
+    private static void format(Map<String, Tasks> projects, Writer writer) throws IOException {
         for (Map.Entry<String, Tasks> project : projects.entrySet()) {
             writer.write(project.getKey());
             writer.write("\n");
