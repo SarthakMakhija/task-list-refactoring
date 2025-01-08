@@ -20,7 +20,7 @@ public final class TaskList {
         String command = commandRest[0];
         switch (command) {
             case "show":
-                show();
+                new ShowCommand(writer, projects).execute();
                 break;
             case "add":
                 add(commandRest[1]);
