@@ -21,7 +21,7 @@ public class ShowCommandTest {
         command.execute();
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
-        assertEquals(expected, projects.format());
+        assertEquals(expected, writer.toString());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class ShowCommandTest {
         command.execute();
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[ ] 2: Task 2\n";
-        assertEquals(expected, projects.format());
+        assertEquals(expected, writer.toString());
     }
 
     @Test
@@ -53,6 +53,6 @@ public class ShowCommandTest {
         command.execute();
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[x] 2: Task 2\n";
-        assertEquals(expected, projects.format());
+        assertEquals(expected, writer.toString());
     }
 }
