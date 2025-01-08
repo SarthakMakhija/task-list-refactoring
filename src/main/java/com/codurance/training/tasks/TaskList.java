@@ -2,7 +2,6 @@ package com.codurance.training.tasks;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Map;
 
 import static java.lang.System.out;
 
@@ -70,17 +69,9 @@ public final class TaskList {
 
     private void setDone(String idString, boolean done) {
         int id = Integer.parseInt(idString);
-        if (toggleTaskWithId(id, done, projects)) return;
+        if (projects.toggleTaskWithId(id, done)) return;
         out.printf("Could not find a task with an ID of %d.", id);
         out.println();
-    }
-
-    private boolean toggleTaskWithId(int id, boolean done, Projects projects) {
-        for (Map.Entry<String, Tasks> project : projects.entrySet()) {
-            Tasks tasks = project.getValue();
-            if (tasks.toggleTaskWithId(id, done)) return true;
-        }
-        return false;
     }
 
     private long nextId() {
