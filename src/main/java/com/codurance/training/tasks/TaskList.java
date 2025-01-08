@@ -44,9 +44,15 @@ public final class TaskList {
         for (Map.Entry<String, List<Task>> project : projects.entrySet()) {
             writer.write(project.getKey());
             writer.write("\n");
-            for (Task task : project.getValue()) {
-                writer.write(task.format());
-            }
+            List<Task> tasks = project.getValue();
+            format(tasks, writer);
+        }
+    }
+
+    //proves that the method does not belong here, it iterates over tasks. Hence, it should go to List<Task>/
+    private static void format(List<Task> tasks, Writer writer) throws IOException {
+        for (Task task : tasks) {
+            writer.write(task.format());
         }
     }
 
