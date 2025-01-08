@@ -45,7 +45,7 @@ public final class TaskList {
             writer.write(project.getKey());
             writer.write("\n");
             for (Task task : project.getValue()) {
-                writer.write(String.format("[%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription()));
+                writer.write(task.format());
             }
         }
     }

@@ -11,6 +11,10 @@ public final class Task {
         this.done = done;
     }
 
+    String format() {
+        return String.format("[%c] %d: %s%n", (this.isDone() ? 'x' : ' '), this.getId(), this.getDescription());
+    }
+
     public long getId() {
         return id;
     }

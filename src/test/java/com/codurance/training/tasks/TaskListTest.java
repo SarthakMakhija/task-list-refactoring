@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class TaskListTest {
 
     @Test
-    public void testExecuteWithAdditionOfAProjectContainingOneTask() throws Exception {
+    public void executeWithAdditionOfAProjectContainingOneTask() throws Exception {
         StringWriter writer = new StringWriter();
         TaskList taskList = new TaskList(writer);
         taskList.execute("add project caizin");
@@ -21,7 +21,7 @@ public class TaskListTest {
     }
 
     @Test
-    public void testExecuteWithAdditionOfAProjectContainingACoupleOfTasks() throws Exception {
+    public void executeWithAdditionOfAProjectContainingACoupleOfTasks() throws Exception {
         StringWriter writer = new StringWriter();
         TaskList taskList = new TaskList(writer);
         taskList.execute("add project caizin");
