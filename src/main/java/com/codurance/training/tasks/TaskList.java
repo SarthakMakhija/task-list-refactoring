@@ -10,7 +10,7 @@ import static java.lang.System.out;
 
 public final class TaskList {
 
-    private final Map<String, Tasks> projects = new LinkedHashMap<>();
+    private final Projects projects = new Projects();
     private final Writer writer;
     private long lastId = 0;
 
@@ -40,16 +40,7 @@ public final class TaskList {
     }
 
     private void show() throws IOException {
-        format(projects, writer);
-    }
-
-    //format does not belong here, it belongs to Map<String, Tasks>.
-    private static void format(Map<String, Tasks> projects, Writer writer) throws IOException {
-        for (Map.Entry<String, Tasks> project : projects.entrySet()) {
-            writer.write(project.getKey());
-            writer.write("\n");
-            writer.write(project.getValue().format());
-        }
+        this.writer.write(this.projects.format());
     }
 
     private void add(String commandLine) {
