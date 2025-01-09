@@ -39,8 +39,8 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("add project caizin");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.ADD_PROJECT, commandDescription.commandType());
-        assertEquals(List.of("caizin"), commandDescription.arguments());
+        assertEquals(CommandType.ADD, commandDescription.commandType());
+        assertEquals(List.of("project", "caizin"), commandDescription.arguments());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("add task caizin 200");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.ADD_TASK, commandDescription.commandType());
-        assertEquals(List.of("caizin", "200"), commandDescription.arguments());
+        assertEquals(CommandType.ADD, commandDescription.commandType());
+        assertEquals(List.of("task", "caizin", "200"), commandDescription.arguments());
     }
 }

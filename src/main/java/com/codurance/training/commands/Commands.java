@@ -18,6 +18,7 @@ public class Commands {
 
     public Commands(Writer writer) {
         Projects projects = new Projects();
+        commandByType.put(CommandType.ADD, new AddCommandRegistry(projects));
         commandByType.put(CommandType.ADD_PROJECT, new AddProjectCommand(projects));
         commandByType.put(CommandType.ADD_TASK, new AddTaskCommand(projects));
         commandByType.put(CommandType.SHOW, new ShowCommand(writer, projects));
