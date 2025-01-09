@@ -2,6 +2,7 @@ package com.codurance.training.tasks;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 public final class TaskList {
 
@@ -24,10 +25,10 @@ public final class TaskList {
                 add(parts[1]);
                 break;
             case "check":
-                new CheckCommand(writer, projects).execute(new String[]{parts[1]});
+                new CheckCommand(writer, projects).execute(List.of(parts[1]));
                 break;
             case "uncheck":
-                new UncheckCommand(writer, projects).execute(new String[]{parts[1]});
+                new UncheckCommand(writer, projects).execute(List.of(parts[1]));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown command: " + command);
@@ -38,10 +39,10 @@ public final class TaskList {
         String[] subcommandRest = commandLine.split(" ", 2);
         String subcommand = subcommandRest[0];
         if (subcommand.equals("project")) {
-            new AddProjectCommand(projects).execute(new String[]{subcommandRest[1]});
+            new AddProjectCommand(projects).execute(List.of(subcommandRest[1]));
         } else if (subcommand.equals("task")) {
             String[] projectTask = subcommandRest[1].split(" ", 2);
-            addTaskCommand.execute(projectTask);
+            addTaskCommand.execute(List.of(projectTask));
         }
     }
 }

@@ -2,6 +2,7 @@ package com.codurance.training.tasks;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 public class ShowCommand {
     private final Writer writer;
@@ -12,7 +13,7 @@ public class ShowCommand {
         this.projects = projects;
     }
 
-    void execute(String[] arguments) throws IOException {
+    void execute(List<String> arguments) throws IOException {
         this.writer.write(this.projects.format());
     }
 }

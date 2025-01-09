@@ -3,6 +3,7 @@ package com.codurance.training.tasks;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +14,7 @@ public class AddProjectCommandTest {
         Projects projects = new Projects();
 
         AddProjectCommand addProjectCommand = new AddProjectCommand(projects);
-        addProjectCommand.execute(new String[]{"caizin"});
+        addProjectCommand.execute(List.of("caizin"));
 
         assertEquals("caizin\n", projects.format());
     }

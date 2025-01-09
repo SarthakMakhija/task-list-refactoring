@@ -2,6 +2,7 @@ package com.codurance.training.tasks;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 public class UncheckCommand {
 
@@ -13,8 +14,8 @@ public class UncheckCommand {
         this.projects = projects;
     }
 
-    void execute(String[] arguments) throws IOException {
-        int taskId = Integer.parseInt(arguments[0]);
+    void execute(List<String> arguments) throws IOException {
+        int taskId = Integer.parseInt(arguments.get(0));
         if (projects.toggleTaskWithId(taskId, false)) return;
         writer.write(String.format("Could not find a task with an ID of %d\n", taskId));
     }

@@ -1,6 +1,7 @@
 package com.codurance.training.tasks;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AddProjectCommand {
     private final Projects projects;
@@ -9,8 +10,8 @@ public class AddProjectCommand {
         this.projects = projects;
     }
 
-    void execute(String[] arguments) throws IOException {
-        String projectName = arguments[0];
+    void execute(List<String> arguments) throws IOException {
+        String projectName = arguments.get(0);
         projects.addProject(projectName);
     }
 }

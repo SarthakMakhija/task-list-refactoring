@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,7 +19,7 @@ public class CheckCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
 
         CheckCommand checkCommand = new CheckCommand(writer, projects);
-        checkCommand.execute(new String[]{"1"});
+        checkCommand.execute(List.of("1"));
 
         String expected = "caizin\n" + "[x] 1: Task 1\n";
         assertEquals(expected, projects.format());

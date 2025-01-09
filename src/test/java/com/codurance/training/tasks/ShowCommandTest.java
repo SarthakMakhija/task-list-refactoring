@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,7 +19,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute(null);
+        command.execute(List.of());
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, writer.toString());
@@ -34,7 +35,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", false));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute(null);
+        command.execute(List.of());
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[ ] 2: Task 2\n";
         assertEquals(expected, writer.toString());
@@ -50,7 +51,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", true));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute(null);
+        command.execute(List.of());
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[x] 2: Task 2\n";
         assertEquals(expected, writer.toString());
