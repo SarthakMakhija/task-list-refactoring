@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Tasks extends ArrayList<Task> {
 
-    String format() {
+    public String format() {
         StringBuilder formatted = new StringBuilder();
         for (Task task : this) {
             formatted.append(task.format());
@@ -12,7 +12,7 @@ public class Tasks extends ArrayList<Task> {
         return formatted.toString();
     }
 
-    boolean toggleTaskWithId(int id, boolean done) {
+    public boolean toggleTaskWithId(int id, boolean done) {
         for (Task task : this) {
             if (task.matchesId(id)) {
                 task.setDone(done);

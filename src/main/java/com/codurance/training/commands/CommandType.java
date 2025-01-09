@@ -1,4 +1,4 @@
-package com.codurance.training.tasks;
+package com.codurance.training.commands;
 
 public enum CommandType {
     ADD_PROJECT("add_project"), ADD_TASK("add_task"), SHOW("show"), CHECK("check"), UNCHECK("uncheck");

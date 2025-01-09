@@ -1,4 +1,4 @@
-package com.codurance.training.tasks;
+package com.codurance.training.commands;
 
 import org.junit.Test;
 

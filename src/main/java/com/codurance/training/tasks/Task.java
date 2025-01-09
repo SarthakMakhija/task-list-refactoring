@@ -11,11 +11,11 @@ public final class Task {
         this.done = done;
     }
 
-    String format() {
+    public String format() {
         return String.format("[%c] %d: %s%n", (done ? 'x' : ' '), id, description);
     }
 
-    boolean matchesId(int id) {
+    public boolean matchesId(int id) {
         return this.id == id;
     }
 

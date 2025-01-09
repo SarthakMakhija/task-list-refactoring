@@ -4,11 +4,11 @@ import java.util.LinkedHashMap;
 
 public class Projects extends LinkedHashMap<String, Project> {
 
-    void addProject(String name) {
+    public void addProject(String name) {
         this.put(name, new Project(name));
     }
 
-    void addTaskToProjectWithName(String projectName, Task task) {
+    public void addTaskToProjectWithName(String projectName, Task task) {
         Project project = this.get(projectName);
         if (project == null) {
             throw new IllegalArgumentException("Unknown project: " + projectName);
@@ -16,11 +16,11 @@ public class Projects extends LinkedHashMap<String, Project> {
         project.addTask(task);
     }
 
-    boolean toggleTaskWithId(int id, boolean done) {
+    public boolean toggleTaskWithId(int id, boolean done) {
         return this.values().stream().anyMatch((Project project) -> project.toggleTaskWithId(id, done));
     }
 
-    String format() {
+    public String format() {
         StringBuilder formatted = new StringBuilder();
         this.values().stream().map(Project::format).forEach(formatted::append);
         return formatted.toString();
