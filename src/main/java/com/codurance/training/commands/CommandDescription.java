@@ -1,7 +1,5 @@
 package com.codurance.training.commands;
 
-import java.util.List;
-
 public class CommandDescription {
     private final CommandType commandType;
     private final Arguments arguments;

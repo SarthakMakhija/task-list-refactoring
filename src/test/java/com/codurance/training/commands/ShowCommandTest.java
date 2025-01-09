@@ -4,7 +4,6 @@ import com.codurance.training.tasks.Projects;
 import com.codurance.training.tasks.Task;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.io.StringWriter;
 import java.util.List;
 

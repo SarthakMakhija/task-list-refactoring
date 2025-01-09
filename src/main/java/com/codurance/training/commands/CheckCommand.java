@@ -3,7 +3,6 @@ package com.codurance.training.commands;
 import com.codurance.training.tasks.Projects;
 
 import java.io.Writer;
-import java.util.List;
 
 class CheckCommand implements Command {
     private final Writer writer;
