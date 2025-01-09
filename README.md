@@ -1,2 +1,2 @@
 # task-list-refactoring
-Repository to refactor TaskList as a part of teaching refactoring
+Contains the original code. The code was taken from [here](https://kata-log.rocks/task-list-kata) and modified slightly.
