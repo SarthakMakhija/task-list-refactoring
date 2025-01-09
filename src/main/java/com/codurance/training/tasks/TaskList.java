@@ -1,48 +1,43 @@
 package com.codurance.training.tasks;
 
-import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 
 public final class TaskList {
 
-    private final Projects projects = new Projects();
-    private final AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
-    private final Writer writer;
+    private final AddTaskCommand addTaskCommand;
+    private final AddProjectCommand addProjectCommand;
+    private final ShowCommand showCommand;
+    private final CheckCommand checkCommand;
+    private final UncheckCommand uncheckCommand;
 
     public TaskList(Writer writer) {
-        this.writer = writer;
+        Projects projects = new Projects();
+        this.addTaskCommand = new AddTaskCommand(projects);
+        this.addProjectCommand = new AddProjectCommand(projects);
+        this.showCommand = new ShowCommand(writer, projects);
+        this.checkCommand = new CheckCommand(writer, projects);
+        this.uncheckCommand = new UncheckCommand(writer, projects);
     }
 
     public void execute(String commandLine) throws Exception {
-        String[] parts = commandLine.split(" ", 2);
-        String command = parts[0];
-        switch (command) {
-            case "show":
-                new ShowCommand(writer, projects).execute(null);
+        CommandDescription commandDescription = new CommandLine(commandLine).parse();
+        switch (commandDescription.getCommandType()) {
+            case ADD_TASK:
+                this.addTaskCommand.execute(commandDescription.getArguments());
                 break;
-            case "add":
-                add(parts[1]);
+            case ADD_PROJECT:
+                this.addProjectCommand.execute(commandDescription.getArguments());
                 break;
-            case "check":
-                new CheckCommand(writer, projects).execute(List.of(parts[1]));
+            case SHOW:
+                this.showCommand.execute(commandDescription.getArguments());
                 break;
-            case "uncheck":
-                new UncheckCommand(writer, projects).execute(List.of(parts[1]));
+            case CHECK:
+                this.checkCommand.execute(commandDescription.getArguments());
                 break;
-            default:
-                throw new IllegalArgumentException("Unknown command: " + command);
-        }
-    }
-
-    private void add(String commandLine) throws IOException {
-        String[] subcommandRest = commandLine.split(" ", 2);
-        String subcommand = subcommandRest[0];
-        if (subcommand.equals("project")) {
-            new AddProjectCommand(projects).execute(List.of(subcommandRest[1]));
-        } else if (subcommand.equals("task")) {
-            String[] projectTask = subcommandRest[1].split(" ", 2);
-            addTaskCommand.execute(List.of(projectTask));
+            case UNCHECK:
+                this.uncheckCommand.execute(commandDescription.getArguments());
+                break;
         }
     }
 }
+
