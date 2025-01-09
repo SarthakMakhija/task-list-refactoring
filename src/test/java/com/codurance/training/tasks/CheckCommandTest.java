@@ -7,8 +7,18 @@ import java.io.StringWriter;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class CheckCommandTest {
+
+    @Test
+    public void attemptToExecuteCheckTaskCommand() {
+        StringWriter writer = new StringWriter();
+        Projects projects = new Projects();
+
+        CheckCommand checkCommand = new CheckCommand(writer, projects);
+        assertThrows(AssertionError.class, () -> checkCommand.execute(List.of()));
+    }
 
     @Test
     public void executeCheckCommandByCheckingATask() throws IOException {

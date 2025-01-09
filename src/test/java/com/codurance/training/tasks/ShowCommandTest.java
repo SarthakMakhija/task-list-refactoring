@@ -7,8 +7,18 @@ import java.io.StringWriter;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class ShowCommandTest {
+
+    @Test
+    public void attemptToExecuteShowTaskCommand() {
+        StringWriter writer = new StringWriter();
+        Projects projects = new Projects();
+
+        ShowCommand showCommand = new ShowCommand(writer, projects);
+        assertThrows(AssertionError.class, () -> showCommand.execute(List.of("not-meaningful")));
+    }
 
     @Test
     public void executeShowCommandWithAProjectContainingASingleTask() throws IOException {

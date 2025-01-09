@@ -6,8 +6,17 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class AddTaskCommandTest {
+
+    @Test
+    public void attemptToExecuteAddTaskCommand() {
+        Projects projects = new Projects();
+
+        AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
+        assertThrows(AssertionError.class, () -> addTaskCommand.execute(List.of()));
+    }
 
     @Test
     public void executeCheckCommandByAddingATaskToAProject() throws IOException {

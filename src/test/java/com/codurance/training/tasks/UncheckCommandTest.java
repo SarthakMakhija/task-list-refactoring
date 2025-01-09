@@ -7,8 +7,18 @@ import java.io.StringWriter;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class UncheckCommandTest {
+
+    @Test
+    public void attemptToExecuteUncheckTaskCommand() {
+        StringWriter writer = new StringWriter();
+        Projects projects = new Projects();
+
+        UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
+        assertThrows(AssertionError.class, () -> uncheckCommand.execute(List.of()));
+    }
 
     @Test
     public void executeUncheckCommandByUncheckingATask() throws IOException {

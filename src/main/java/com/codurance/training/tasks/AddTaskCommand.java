@@ -12,6 +12,7 @@ public class AddTaskCommand implements Command {
     }
 
     public void execute(List<String> arguments) throws IOException {
+        assert (arguments.size() == 2);
         String projectName = arguments.get(0);
         String taskDescription = arguments.get(1);
 

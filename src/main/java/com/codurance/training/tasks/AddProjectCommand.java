@@ -11,6 +11,7 @@ public class AddProjectCommand implements Command {
     }
 
     public void execute(List<String> arguments) throws IOException {
+        assert (arguments.size() == 1);
         String projectName = arguments.get(0);
         projects.addProject(projectName);
     }
