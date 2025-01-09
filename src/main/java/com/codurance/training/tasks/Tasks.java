@@ -1,6 +1,7 @@
 package com.codurance.training.tasks;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 class Tasks extends ArrayList<Task> {
 
@@ -13,22 +14,17 @@ class Tasks extends ArrayList<Task> {
     }
 
     boolean markTaskWithIdDone(int id) {
-        for (Task task : this) {
-            if (task.matchesId(id)) {
-                task.markDone();
-                return true;
-            }
-        }
-        return false;
+        return executeBlockOnMatchingTask(id, Task::markDone);
     }
 
     boolean markTaskWithIdNotDone(int id) {
-        for (Task task : this) {
-            if (task.matchesId(id)) {
-                task.markNotDone();
-                return true;
-            }
-        }
-        return false;
+        return executeBlockOnMatchingTask(id, Task::markNotDone);
+    }
+
+    boolean executeBlockOnMatchingTask(int id, Consumer<Task> block) {
+        return this.stream().filter(task -> task.matchesId(id)).findFirst().map(task -> {
+            block.accept(task);
+            return true;
+        }).orElse(false);
     }
 }
