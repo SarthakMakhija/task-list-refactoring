@@ -1,6 +1,7 @@
 package com.codurance.training.tasks;
 
 import java.util.LinkedHashMap;
+import java.util.stream.Collectors;
 
 public class Projects extends LinkedHashMap<String, Project> {
 
@@ -25,9 +26,7 @@ public class Projects extends LinkedHashMap<String, Project> {
     }
 
     public String format() {
-        StringBuilder formatted = new StringBuilder();
-        this.values().stream().map(Project::format).forEach(formatted::append);
-        return formatted.toString();
+        return this.values().stream().map(Project::format).collect(Collectors.joining());
     }
 }
 
@@ -53,8 +52,6 @@ class Project {
     }
 
     String format() {
-        return this.name +
-                "\n" +
-                this.tasks.format();
+        return this.name + "\n" + this.tasks.format();
     }
 }
