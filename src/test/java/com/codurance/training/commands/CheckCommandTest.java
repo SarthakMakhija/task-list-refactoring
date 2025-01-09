@@ -23,7 +23,7 @@ public class CheckCommandTest {
     }
 
     @Test
-    public void executeCheckCommandByCheckingATask() throws IOException {
+    public void executeCheckCommandByCheckingATask() throws Exception {
         StringWriter writer = new StringWriter();
 
         Projects projects = new Projects();

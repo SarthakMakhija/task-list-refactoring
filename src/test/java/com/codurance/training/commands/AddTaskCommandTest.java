@@ -20,7 +20,7 @@ public class AddTaskCommandTest {
     }
 
     @Test
-    public void executeCheckCommandByAddingATaskToAProject() throws IOException {
+    public void executeCheckCommandByAddingATaskToAProject() throws Exception {
         Projects projects = new Projects();
         projects.addProject("caizin");
 

@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class CommandsTest {
 
     @Test
-    public void executeAddTaskInAProjectFollowedByShow() throws IOException {
+    public void executeAddTaskInAProjectFollowedByShow() throws Exception {
         StringWriter writer = new StringWriter();
 
         Commands commands = new Commands(writer);
@@ -24,7 +24,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void executeAddTaskInAProjectFollowedByCheckAndShow() throws IOException {
+    public void executeAddTaskInAProjectFollowedByCheckAndShow() throws Exception {
         StringWriter writer = new StringWriter();
 
         Commands commands = new Commands(writer);
@@ -38,7 +38,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void executeAddTaskInAProjectFollowedByCheckAndUncheckAndThenShow() throws IOException {
+    public void executeAddTaskInAProjectFollowedByCheckAndUncheckAndThenShow() throws Exception {
         StringWriter writer = new StringWriter();
 
         Commands commands = new Commands(writer);

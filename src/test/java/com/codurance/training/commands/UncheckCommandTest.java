@@ -23,7 +23,7 @@ public class UncheckCommandTest {
     }
 
     @Test
-    public void executeUncheckCommandByUncheckingATask() throws IOException {
+    public void executeUncheckCommandByUncheckingATask() throws Exception {
         StringWriter writer = new StringWriter();
 
         Projects projects = new Projects();

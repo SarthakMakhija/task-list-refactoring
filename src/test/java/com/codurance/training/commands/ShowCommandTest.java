@@ -23,7 +23,7 @@ public class ShowCommandTest {
     }
 
     @Test
-    public void executeShowCommandWithAProjectContainingASingleTask() throws IOException {
+    public void executeShowCommandWithAProjectContainingASingleTask() throws Exception {
         StringWriter writer = new StringWriter();
 
         Projects projects = new Projects();
@@ -38,7 +38,7 @@ public class ShowCommandTest {
     }
 
     @Test
-    public void executeShowCommandWithAProjectContainingACoupleOfTasks() throws IOException {
+    public void executeShowCommandWithAProjectContainingACoupleOfTasks() throws Exception {
         StringWriter writer = new StringWriter();
 
         Projects projects = new Projects();
@@ -54,7 +54,7 @@ public class ShowCommandTest {
     }
 
     @Test
-    public void executeShowCommandWithAProjectContainingACoupleOfTasksOneOfThemDone() throws IOException {
+    public void executeShowCommandWithAProjectContainingACoupleOfTasksOneOfThemDone() throws Exception {
         StringWriter writer = new StringWriter();
 
         Projects projects = new Projects();

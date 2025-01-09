@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 interface Command {
-    void execute(List<String> arguments) throws IOException;
+    void execute(List<String> arguments) throws Exception;
 }
 
 public class Commands {
@@ -24,7 +24,7 @@ public class Commands {
         commandByType.put(CommandType.UNCHECK, new UncheckCommand(writer, projects));
     }
 
-    public void execute(CommandDescription commandDescription) throws IOException {
+    public void execute(CommandDescription commandDescription) throws Exception {
         commandByType.get(commandDescription.commandType()).execute(commandDescription.arguments());
     }
 }

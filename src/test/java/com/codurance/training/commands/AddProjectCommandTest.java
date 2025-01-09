@@ -20,7 +20,7 @@ public class AddProjectCommandTest {
     }
 
     @Test
-    public void executeAddProjectCommandByAddingAProject() throws IOException {
+    public void executeAddProjectCommandByAddingAProject() throws Exception {
         Projects projects = new Projects();
 
         AddProjectCommand addProjectCommand = new AddProjectCommand(projects);

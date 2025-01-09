@@ -15,7 +15,7 @@ class UncheckCommand implements Command {
         this.projects = projects;
     }
 
-    public void execute(List<String> arguments) throws IOException {
+    public void execute(List<String> arguments) throws Exception {
         assert (arguments.size() == 1);
         int taskId = Integer.parseInt(arguments.get(0));
         if (projects.markTaskWithIdNotDone(taskId)) return;
