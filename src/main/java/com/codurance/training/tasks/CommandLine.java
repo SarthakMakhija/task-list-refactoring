@@ -21,11 +21,11 @@ public class CommandLine {
 
     private static CommandDescription parseAdd(String[] parts) {
         String subCommand = parts[1];
-        if (subCommand.equals("project")) {
-            return new CommandDescription("add_project", commandArgumentsFrom(parts, 2));
-        }
-        if (subCommand.equals("task")) {
-            return new CommandDescription("add_task", commandArgumentsFrom(parts, 2));
+        switch (subCommand) {
+            case "project":
+                return new CommandDescription(CommandType.ADD_PROJECT, commandArgumentsFrom(parts, 2));
+            case "task":
+                return new CommandDescription(CommandType.ADD_TASK, commandArgumentsFrom(parts, 2));
         }
         throw new IllegalArgumentException("Unknown subcommand: " + subCommand);
     }

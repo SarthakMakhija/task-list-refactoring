@@ -7,7 +7,11 @@ public class CommandDescription {
     private final List<String> arguments;
 
     public CommandDescription(String commandName, List<String> arguments) {
-        this.commandType = CommandType.from(commandName);
+        this(CommandType.from(commandName), arguments);
+    }
+
+    public CommandDescription(CommandType commandType, List<String> arguments) {
+        this.commandType = commandType;
         this.arguments = arguments;
     }
 
