@@ -16,13 +16,7 @@ class CheckCommand implements Command {
 
     public void execute(Arguments arguments) throws Exception {
         assert (arguments.size() == 1);
-        int taskId = taskId(arguments);
-        if (projects.markTaskWithIdDone(taskId)) return;
-        writer.write(String.format("Could not find a task with an ID of %d\n", taskId));
-    }
-
-    //highlights that the method does not belong here
-    private static int taskId(List<String> arguments) {
-        return Integer.parseInt(arguments.get(0));
+        if (projects.markTaskWithIdDone(arguments.argumentAtIndexAsInt(0))) return;
+        writer.write(String.format("Could not find a task with an ID of %d\n", arguments.argumentAtIndexAsInt(0)));
     }
 }

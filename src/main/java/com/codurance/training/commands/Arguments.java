@@ -21,4 +21,8 @@ public class Arguments extends ArrayList<String> {
     Arguments skipOne() {
         return new Arguments(this.subList(1, this.size()));
     }
+
+    int argumentAtIndexAsInt(int index) {
+        return Integer.parseInt(this.get(index));
+    }
 }
