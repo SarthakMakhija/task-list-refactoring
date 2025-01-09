@@ -10,9 +10,9 @@ name: TaskListRefactoring
 
 on:
   push:
-    branches: [ "refactoring" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "refactoring" ]
+    branches: [ "main" ]
 
 jobs:
   build:
