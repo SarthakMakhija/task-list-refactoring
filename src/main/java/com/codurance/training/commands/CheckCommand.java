@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-public class CheckCommand implements Command {
-
+class CheckCommand implements Command {
     private final Writer writer;
     private final Projects projects;
 

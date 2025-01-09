@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-public class UncheckCommand implements Command {
-
+class UncheckCommand implements Command {
     private final Writer writer;
     private final Projects projects;
 

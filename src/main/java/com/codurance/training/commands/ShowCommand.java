@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-public class ShowCommand implements Command {
+class ShowCommand implements Command {
     private final Writer writer;
     private final Projects projects;
 

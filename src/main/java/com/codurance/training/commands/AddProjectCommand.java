@@ -5,7 +5,7 @@ import com.codurance.training.tasks.Projects;
 import java.io.IOException;
 import java.util.List;
 
-public class AddProjectCommand implements Command {
+class AddProjectCommand implements Command {
     private final Projects projects;
 
     AddProjectCommand(Projects projects) {

@@ -5,7 +5,12 @@ import com.codurance.training.tasks.Projects;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+interface Command {
+    void execute(List<String> arguments) throws IOException;
+}
 
 public class Commands {
     private final Map<CommandType, Command> commandByType = new HashMap<>();

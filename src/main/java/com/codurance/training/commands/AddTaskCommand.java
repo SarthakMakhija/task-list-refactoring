@@ -6,7 +6,7 @@ import com.codurance.training.tasks.Task;
 import java.io.IOException;
 import java.util.List;
 
-public class AddTaskCommand implements Command {
+class AddTaskCommand implements Command {
     private final Projects projects;
     private long lastTaskId = 0;
 
