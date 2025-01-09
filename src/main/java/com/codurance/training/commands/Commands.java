@@ -12,6 +12,7 @@ interface Command {
     void execute(List<String> arguments) throws Exception;
 }
 
+//TODO: change the name, maybe TopLevelCommandRegistry
 public class Commands {
     private final Map<CommandType, Command> commandByType = new HashMap<>();
 
