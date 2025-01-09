@@ -15,3 +15,7 @@ This repository aims to refactor a slightly modified version of [TaskList](https
 
 The original code is available [here](https://github.com/SarthakMakhija/task-list-refactoring/tree/original).
 
+### What is not covered
+
+- This repository does not implement any feature mentioned in the original [TaskList](https://github.com/codurance/task-list/) repository.
+- This repository does not implement solitary unit-tests. All the unit-tests are sociable.
