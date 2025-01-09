@@ -2,10 +2,34 @@ package com.codurance.training.tasks;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class ProjectsTest {
+
+    @Test
+    public void addProject() {
+        Projects projects = new Projects();
+        projects.addProject("caizin");
+
+        String expected = "caizin\n";
+        assertEquals(expected, projects.format());
+    }
+
+    @Test
+    public void addTaskToAnExistingProject() {
+        Projects projects = new Projects();
+        projects.addProject("caizin");
+        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true));
+
+        String expected = "caizin\n" + "[x] 1: Task 1\n";
+        assertEquals(expected, projects.format());
+    }
+
+    @Test
+    public void attemptToAddTaskToANonExistingProject() {
+        Projects projects = new Projects();
+        assertThrows(IllegalArgumentException.class, () -> projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true)));
+    }
 
     @Test
     public void formatProjectsWithASingleProject() {
