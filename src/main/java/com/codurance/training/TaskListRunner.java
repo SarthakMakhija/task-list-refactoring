@@ -1,14 +1,14 @@
-package com.codurance.training.tasks;
+package com.codurance.training;
 
 import com.codurance.training.commands.CommandLine;
 import com.codurance.training.commands.Commands;
 
 import java.io.Writer;
 
-public final class TaskList {
+public final class TaskListRunner {
     private final Commands commands;
 
-    public TaskList(Writer writer) {
+    public TaskListRunner(Writer writer) {
         commands = new Commands(writer);
     }
 
