@@ -6,7 +6,6 @@ import com.codurance.training.commands.Commands;
 import java.io.Writer;
 
 public final class TaskList {
-
     private final Commands commands;
 
     public TaskList(Writer writer) {

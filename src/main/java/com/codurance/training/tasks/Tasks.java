@@ -2,9 +2,9 @@ package com.codurance.training.tasks;
 
 import java.util.ArrayList;
 
-public class Tasks extends ArrayList<Task> {
+class Tasks extends ArrayList<Task> {
 
-    public String format() {
+    String format() {
         StringBuilder formatted = new StringBuilder();
         for (Task task : this) {
             formatted.append(task.format());
@@ -12,7 +12,7 @@ public class Tasks extends ArrayList<Task> {
         return formatted.toString();
     }
 
-    public boolean toggleTaskWithId(int id, boolean done) {
+    boolean toggleTaskWithId(int id, boolean done) {
         for (Task task : this) {
             if (task.matchesId(id)) {
                 task.setDone(done);
