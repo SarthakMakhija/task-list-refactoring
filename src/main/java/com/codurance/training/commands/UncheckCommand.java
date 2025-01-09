@@ -18,7 +18,7 @@ class UncheckCommand implements Command {
     public void execute(List<String> arguments) throws IOException {
         assert (arguments.size() == 1);
         int taskId = Integer.parseInt(arguments.get(0));
-        if (projects.toggleTaskWithId(taskId, false)) return;
+        if (projects.markTaskWithIdNotDone(taskId)) return;
         writer.write(String.format("Could not find a task with an ID of %d\n", taskId));
     }
 }

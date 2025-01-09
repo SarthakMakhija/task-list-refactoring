@@ -32,34 +32,42 @@ public class ProjectsTest {
     }
 
     @Test
-    public void toggleTaskAsNotDone() {
+    public void markTaskAsNotDone() {
         Projects projects = new Projects();
         projects.addProject("caizin");
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true));
 
-        projects.toggleTaskWithId(1, false);
+        projects.markTaskWithIdNotDone(1);
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, projects.format());
     }
 
     @Test
-    public void toggleTaskAsDone() {
+    public void markTaskAsDone() {
         Projects projects = new Projects();
         projects.addProject("caizin");
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
 
-        projects.toggleTaskWithId(1, true);
+        projects.markTaskWithIdDone(1);
 
         String expected = "caizin\n" + "[x] 1: Task 1\n";
         assertEquals(expected, projects.format());
     }
 
     @Test
-    public void attemptToToggleTaskWithNonExistingId() {
+    public void attemptToMarkTaskWithNonExistingIdAsNotDone() {
         Projects projects = new Projects();
         projects.addProject("caizin");
 
-        assertFalse(projects.toggleTaskWithId(100, true));
+        assertFalse(projects.markTaskWithIdNotDone(100));
+    }
+
+    @Test
+    public void attemptToMarkTaskWithNonExistingIdAsDone() {
+        Projects projects = new Projects();
+        projects.addProject("caizin");
+
+        assertFalse(projects.markTaskWithIdDone(100));
     }
 }

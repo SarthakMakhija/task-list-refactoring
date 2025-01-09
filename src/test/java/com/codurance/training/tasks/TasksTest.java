@@ -34,20 +34,20 @@ public class TasksTest {
     }
 
     @Test
-    public void togglesATaskAsDoneWithMatchingId() {
+    public void markATaskAsDoneWithMatchingId() {
         Tasks tasks = new Tasks();
         tasks.add(new Task(1, "Task 1", false));
 
-        tasks.toggleTaskWithId(1, true);
+        tasks.markTaskWithIdDone(1);
         assertEquals("[x] 1: Task 1\n",  tasks.format());
     }
 
     @Test
-    public void togglesATaskAsNotDoneWithMatchingId() {
+    public void markATaskAsNotDoneWithMatchingId() {
         Tasks tasks = new Tasks();
         tasks.add(new Task(1, "Task 1", true));
 
-        tasks.toggleTaskWithId(1, false);
+        tasks.markTaskWithIdNotDone(1);
         assertEquals("[ ] 1: Task 1\n",  tasks.format());
     }
 }

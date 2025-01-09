@@ -19,7 +19,11 @@ public final class Task {
         return this.id == id;
     }
 
-    void setDone(boolean done) {
-        this.done = done;
+    void markDone() {
+        this.done = true;
+    }
+
+    void markNotDone() {
+        this.done = false;
     }
 }

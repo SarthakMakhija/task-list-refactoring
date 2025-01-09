@@ -12,10 +12,20 @@ class Tasks extends ArrayList<Task> {
         return formatted.toString();
     }
 
-    boolean toggleTaskWithId(int id, boolean done) {
+    boolean markTaskWithIdDone(int id) {
         for (Task task : this) {
             if (task.matchesId(id)) {
-                task.setDone(done);
+                task.markDone();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    boolean markTaskWithIdNotDone(int id) {
+        for (Task task : this) {
+            if (task.matchesId(id)) {
+                task.markNotDone();
                 return true;
             }
         }

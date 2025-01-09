@@ -16,8 +16,12 @@ public class Projects extends LinkedHashMap<String, Project> {
         project.addTask(task);
     }
 
-    public boolean toggleTaskWithId(int id, boolean done) {
-        return this.values().stream().anyMatch((Project project) -> project.toggleTaskWithId(id, done));
+    public boolean markTaskWithIdDone(int id) {
+        return this.values().stream().anyMatch((Project project) -> project.markTaskWithIdDone(id));
+    }
+
+    public boolean markTaskWithIdNotDone(int id) {
+        return this.values().stream().anyMatch((Project project) -> project.markTaskWithIdNotDone(id));
     }
 
     public String format() {
@@ -40,8 +44,12 @@ class Project {
         this.tasks.add(task);
     }
 
-    boolean toggleTaskWithId(int id, boolean done) {
-        return this.tasks.toggleTaskWithId(id, done);
+    boolean markTaskWithIdDone(int id) {
+        return this.tasks.markTaskWithIdDone(id);
+    }
+
+    boolean markTaskWithIdNotDone(int id) {
+        return this.tasks.markTaskWithIdNotDone(id);
     }
 
     String format() {

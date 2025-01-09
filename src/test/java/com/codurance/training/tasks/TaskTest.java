@@ -29,4 +29,20 @@ public class TaskTest {
         Task task = new Task(1, "Task 2", false);
         assertFalse(task.matchesId(2));
     }
+
+    @Test
+    public void markATaskDone() {
+        Task task = new Task(2, "Task 2", false);
+        task.markDone();
+
+        assertEquals("[x] 2: Task 2\n", task.format());
+    }
+
+    @Test
+    public void markATaskNotDone() {
+        Task task = new Task(2, "Task 2", false);
+        task.markNotDone();
+
+        assertEquals("[ ] 2: Task 2\n", task.format());
+    }
 }
