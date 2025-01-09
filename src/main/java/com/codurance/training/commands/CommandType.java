@@ -1,7 +1,7 @@
 package com.codurance.training.commands;
 
 enum CommandType {
-    ADD("add"), ADD_PROJECT("add_project"), ADD_TASK("add_task"), SHOW("show"), CHECK("check"), UNCHECK("uncheck");
+    ADD("add"), SHOW("show"), CHECK("check"), UNCHECK("uncheck");
 
     private final String commandName;
 

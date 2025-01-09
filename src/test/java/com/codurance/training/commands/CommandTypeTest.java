@@ -22,12 +22,7 @@ public class CommandTypeTest {
     }
 
     @Test
-    public void createCommandTypeForAddProjectCommand() {
-        assertEquals(CommandType.ADD_PROJECT, CommandType.from("add_project"));
-    }
-
-    @Test
-    public void createCommandTypeForAddTaskCommand() {
-        assertEquals(CommandType.ADD_TASK, CommandType.from("add_task"));
+    public void createCommandTypeForAddCommand() {
+        assertEquals(CommandType.ADD, CommandType.from("add"));
     }
 }
