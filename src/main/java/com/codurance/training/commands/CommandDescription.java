@@ -19,7 +19,7 @@ public class CommandDescription {
         return commandType;
     }
 
-    List<String> arguments() {
-        return arguments.arguments;
+    Arguments arguments() {
+        return arguments;
     }
 }

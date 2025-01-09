@@ -19,7 +19,7 @@ public class UncheckCommandTest {
         Projects projects = new Projects();
 
         UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
-        assertThrows(AssertionError.class, () -> uncheckCommand.execute(List.of()));
+        assertThrows(AssertionError.class, () -> uncheckCommand.execute(new Arguments(List.of())));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class UncheckCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true));
 
         UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
-        uncheckCommand.execute(List.of("1"));
+        uncheckCommand.execute(new Arguments(List.of("1")));
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, projects.format());

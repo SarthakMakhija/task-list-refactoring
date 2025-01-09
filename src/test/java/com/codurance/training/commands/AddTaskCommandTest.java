@@ -16,7 +16,7 @@ public class AddTaskCommandTest {
         Projects projects = new Projects();
 
         AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
-        assertThrows(AssertionError.class, () -> addTaskCommand.execute(List.of()));
+        assertThrows(AssertionError.class, () -> addTaskCommand.execute(new Arguments(List.of())));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class AddTaskCommandTest {
         projects.addProject("caizin");
 
         AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
-        addTaskCommand.execute(List.of("caizin", "Task1"));
+        addTaskCommand.execute(new Arguments(List.of("caizin", "Task1")));
 
         assertEquals("caizin\n[ ] 1: Task1\n", projects.format());
     }

@@ -14,7 +14,7 @@ public class AddCommandsTest {
         Projects projects = new Projects();
 
         AddCommands addCommands = new AddCommands(projects);
-        addCommands.execute(List.of("project", "caizin"));
+        addCommands.execute(new Arguments(List.of("project", "caizin")));
 
         String expected = "caizin\n";
         assertEquals(expected, projects.format());
@@ -25,8 +25,8 @@ public class AddCommandsTest {
         Projects projects = new Projects();
 
         AddCommands addCommands = new AddCommands(projects);
-        addCommands.execute(List.of("project", "caizin"));
-        addCommands.execute(List.of("task", "caizin", "Task1"));
+        addCommands.execute(new Arguments(List.of("project", "caizin")));
+        addCommands.execute(new Arguments(List.of("task", "caizin", "Task1")));
 
         String expected = "caizin\n[ ] 1: Task1\n";
         assertEquals(expected, projects.format());

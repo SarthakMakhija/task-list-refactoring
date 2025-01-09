@@ -2,9 +2,7 @@ package com.codurance.training.commands;
 
 import com.codurance.training.tasks.Projects;
 
-import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 
 class ShowCommand implements Command {
     private final Writer writer;
@@ -15,7 +13,7 @@ class ShowCommand implements Command {
         this.projects = projects;
     }
 
-    public void execute(List<String> arguments) throws Exception {
+    public void execute(Arguments arguments) throws Exception {
         assert (arguments.isEmpty());
         this.writer.write(this.projects.format());
     }

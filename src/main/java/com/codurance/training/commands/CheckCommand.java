@@ -14,7 +14,7 @@ class CheckCommand implements Command {
         this.projects = projects;
     }
 
-    public void execute(List<String> arguments) throws Exception {
+    public void execute(Arguments arguments) throws Exception {
         assert (arguments.size() == 1);
         int taskId = taskId(arguments);
         if (projects.markTaskWithIdDone(taskId)) return;

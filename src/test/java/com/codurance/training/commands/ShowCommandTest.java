@@ -19,7 +19,7 @@ public class ShowCommandTest {
         Projects projects = new Projects();
 
         ShowCommand showCommand = new ShowCommand(writer, projects);
-        assertThrows(AssertionError.class, () -> showCommand.execute(List.of("not-meaningful")));
+        assertThrows(AssertionError.class, () -> showCommand.execute(new Arguments(List.of("not-meaningful"))));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute(List.of());
+        command.execute(new Arguments(List.of()));
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, writer.toString());
@@ -47,7 +47,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", false));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute(List.of());
+        command.execute(new Arguments(List.of()));
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[ ] 2: Task 2\n";
         assertEquals(expected, writer.toString());
@@ -63,7 +63,7 @@ public class ShowCommandTest {
         projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", true));
 
         ShowCommand command = new ShowCommand(writer, projects);
-        command.execute(List.of());
+        command.execute(new Arguments(List.of()));
 
         String expected = "caizin\n" + "[ ] 1: Task 1\n" + "[x] 2: Task 2\n";
         assertEquals(expected, writer.toString());

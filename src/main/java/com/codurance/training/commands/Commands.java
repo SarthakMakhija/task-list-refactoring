@@ -4,11 +4,10 @@ import com.codurance.training.tasks.Projects;
 
 import java.io.Writer;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 interface Command {
-    void execute(List<String> arguments) throws Exception;
+    void execute(Arguments arguments) throws Exception;
 }
 
 public class Commands {

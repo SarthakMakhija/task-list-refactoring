@@ -16,7 +16,7 @@ public class AddProjectCommandTest {
         Projects projects = new Projects();
 
         AddProjectCommand addProjectCommand = new AddProjectCommand(projects);
-        assertThrows(AssertionError.class, () -> addProjectCommand.execute(List.of()));
+        assertThrows(AssertionError.class, () -> addProjectCommand.execute(new Arguments(List.of())));
     }
 
     @Test
@@ -24,7 +24,7 @@ public class AddProjectCommandTest {
         Projects projects = new Projects();
 
         AddProjectCommand addProjectCommand = new AddProjectCommand(projects);
-        addProjectCommand.execute(List.of("caizin"));
+        addProjectCommand.execute(new Arguments(List.of("caizin")));
 
         assertEquals("caizin\n", projects.format());
     }

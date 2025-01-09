@@ -1,11 +1,11 @@
 package com.codurance.training.commands;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class Arguments {
-    final List<String> arguments;
+public class Arguments extends ArrayList<String> {
 
     static Arguments skipOneAndCreate(String[] parts) {
         if (parts == null) {
@@ -15,6 +15,10 @@ class Arguments {
     }
 
     Arguments(List<String> arguments) {
-        this.arguments = arguments;
+        this.addAll(arguments);
+    }
+
+    Arguments skipOne() {
+        return new Arguments(this.subList(1, this.size()));
     }
 }
