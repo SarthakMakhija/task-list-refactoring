@@ -3,7 +3,7 @@ package com.codurance.training.tasks;
 import java.io.IOException;
 import java.util.List;
 
-public class AddTaskCommand {
+public class AddTaskCommand implements Command {
     private final Projects projects;
     private long lastTaskId = 0;
 
@@ -11,7 +11,7 @@ public class AddTaskCommand {
         this.projects = projects;
     }
 
-    void execute(List<String> arguments) throws IOException {
+    public void execute(List<String> arguments) throws IOException {
         String projectName = arguments.get(0);
         String taskDescription = arguments.get(1);
 

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-public class ShowCommand {
+public class ShowCommand  implements Command {
     private final Writer writer;
     private final Projects projects;
 
@@ -13,7 +13,7 @@ public class ShowCommand {
         this.projects = projects;
     }
 
-    void execute(List<String> arguments) throws IOException {
+    public void execute(List<String> arguments) throws IOException {
         this.writer.write(this.projects.format());
     }
 }
