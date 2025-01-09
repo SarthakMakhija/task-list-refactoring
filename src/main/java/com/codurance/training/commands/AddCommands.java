@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AddCommandRegistry implements Command {
+public class AddCommands implements Command {
     private final Map<String, Command> commandBySubCommand = new HashMap<>();
 
-    public AddCommandRegistry(Projects projects) {
+    public AddCommands(Projects projects) {
         commandBySubCommand.put("project", new AddProjectCommand(projects));
         commandBySubCommand.put("task", new AddTaskCommand(projects));
     }

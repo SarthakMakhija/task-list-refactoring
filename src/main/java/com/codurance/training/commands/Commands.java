@@ -2,7 +2,6 @@ package com.codurance.training.commands;
 
 import com.codurance.training.tasks.Projects;
 
-import java.io.IOException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +17,7 @@ public class Commands {
 
     public Commands(Writer writer) {
         Projects projects = new Projects();
-        commandByType.put(CommandType.ADD, new AddCommandRegistry(projects));
+        commandByType.put(CommandType.ADD, new AddCommands(projects));
         commandByType.put(CommandType.SHOW, new ShowCommand(writer, projects));
         commandByType.put(CommandType.CHECK, new CheckCommand(writer, projects));
         commandByType.put(CommandType.UNCHECK, new UncheckCommand(writer, projects));

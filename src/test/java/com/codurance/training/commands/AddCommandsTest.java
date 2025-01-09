@@ -7,14 +7,14 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class AddCommandRegistryTest {
+public class AddCommandsTest {
 
     @Test
     public void executeAddProject() throws Exception {
         Projects projects = new Projects();
 
-        AddCommandRegistry addCommandRegistry = new AddCommandRegistry(projects);
-        addCommandRegistry.execute(List.of("project", "caizin"));
+        AddCommands addCommands = new AddCommands(projects);
+        addCommands.execute(List.of("project", "caizin"));
 
         String expected = "caizin\n";
         assertEquals(expected, projects.format());
@@ -24,9 +24,9 @@ public class AddCommandRegistryTest {
     public void executeAddTaskInAProject() throws Exception {
         Projects projects = new Projects();
 
-        AddCommandRegistry addCommandRegistry = new AddCommandRegistry(projects);
-        addCommandRegistry.execute(List.of("project", "caizin"));
-        addCommandRegistry.execute(List.of("task", "caizin", "Task1"));
+        AddCommands addCommands = new AddCommands(projects);
+        addCommands.execute(List.of("project", "caizin"));
+        addCommands.execute(List.of("task", "caizin", "Task1"));
 
         String expected = "caizin\n[ ] 1: Task1\n";
         assertEquals(expected, projects.format());
