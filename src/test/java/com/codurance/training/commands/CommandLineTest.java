@@ -13,7 +13,7 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("show");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.SHOW, commandDescription.getCommandType());
+        assertEquals(CommandType.SHOW, commandDescription.commandType());
     }
 
     @Test
@@ -21,8 +21,8 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("check 100");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.CHECK, commandDescription.getCommandType());
-        assertEquals(List.of("100"), commandDescription.getArguments());
+        assertEquals(CommandType.CHECK, commandDescription.commandType());
+        assertEquals(List.of("100"), commandDescription.arguments());
     }
 
     @Test
@@ -30,8 +30,8 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("uncheck 100");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.UNCHECK, commandDescription.getCommandType());
-        assertEquals(List.of("100"), commandDescription.getArguments());
+        assertEquals(CommandType.UNCHECK, commandDescription.commandType());
+        assertEquals(List.of("100"), commandDescription.arguments());
     }
 
     @Test
@@ -39,8 +39,8 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("add project caizin");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.ADD_PROJECT, commandDescription.getCommandType());
-        assertEquals(List.of("caizin"), commandDescription.getArguments());
+        assertEquals(CommandType.ADD_PROJECT, commandDescription.commandType());
+        assertEquals(List.of("caizin"), commandDescription.arguments());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CommandLineTest {
         CommandLine commandLine = new CommandLine("add task caizin 200");
         CommandDescription commandDescription = commandLine.parse();
 
-        assertEquals(CommandType.ADD_TASK, commandDescription.getCommandType());
-        assertEquals(List.of("caizin", "200"), commandDescription.getArguments());
+        assertEquals(CommandType.ADD_TASK, commandDescription.commandType());
+        assertEquals(List.of("caizin", "200"), commandDescription.arguments());
     }
 }

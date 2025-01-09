@@ -15,11 +15,11 @@ public class CommandDescription {
         this.arguments = arguments;
     }
 
-    CommandType getCommandType() {
+    CommandType commandType() {
         return commandType;
     }
 
-    List<String> getArguments() {
+    List<String> arguments() {
         return arguments;
     }
 }

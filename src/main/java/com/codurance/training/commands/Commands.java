@@ -25,6 +25,6 @@ public class Commands {
     }
 
     public void execute(CommandDescription commandDescription) throws IOException {
-        commandByType.get(commandDescription.getCommandType()).execute(commandDescription.getArguments());
+        commandByType.get(commandDescription.commandType()).execute(commandDescription.arguments());
     }
 }
