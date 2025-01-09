@@ -1,16 +1,19 @@
 package com.codurance.training.tasks;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Projects extends LinkedHashMap<String, Project> {
+public class Projects  {
+
+    private final Map<String, Project> projects = new LinkedHashMap<>();
 
     public void addProject(String name) {
-        this.put(name, new Project(name));
+        this.projects.put(name, new Project(name));
     }
 
     public void addTaskToProjectWithName(String projectName, Task task) {
-        Project project = this.get(projectName);
+        Project project = this.projects.get(projectName);
         if (project == null) {
             throw new IllegalArgumentException("Unknown project: " + projectName);
         }
@@ -18,15 +21,15 @@ public class Projects extends LinkedHashMap<String, Project> {
     }
 
     public boolean markTaskWithIdDone(int id) {
-        return this.values().stream().anyMatch((Project project) -> project.markTaskWithIdDone(id));
+        return this.projects.values().stream().anyMatch((Project project) -> project.markTaskWithIdDone(id));
     }
 
     public boolean markTaskWithIdNotDone(int id) {
-        return this.values().stream().anyMatch((Project project) -> project.markTaskWithIdNotDone(id));
+        return this.projects.values().stream().anyMatch((Project project) -> project.markTaskWithIdNotDone(id));
     }
 
     public String format() {
-        return this.values().stream().map(Project::format).collect(Collectors.joining());
+        return this.projects.values().stream().map(Project::format).collect(Collectors.joining());
     }
 }
 
