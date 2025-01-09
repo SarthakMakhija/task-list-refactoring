@@ -9,6 +9,6 @@ public class CommandLine {
 
     public CommandDescription parse() {
         String[] parts = this.line.split(" ");
-        return new CommandDescription(parts[0], Arguments.skipOneAndCreate(parts).arguments);
+        return new CommandDescription(parts[0], Arguments.skipOneAndCreate(parts));
     }
 }

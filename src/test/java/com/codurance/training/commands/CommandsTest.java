@@ -15,9 +15,9 @@ public class CommandsTest {
         StringWriter writer = new StringWriter();
 
         Commands commands = new Commands(writer);
-        commands.execute(new CommandDescription(CommandType.ADD, List.of("project", "caizin")));
-        commands.execute(new CommandDescription(CommandType.ADD, List.of("task", "caizin", "Task1")));
-        commands.execute(new CommandDescription(CommandType.SHOW, List.of()));
+        commands.execute(new CommandDescription(CommandType.ADD, new Arguments(List.of("project", "caizin"))));
+        commands.execute(new CommandDescription(CommandType.ADD, new Arguments(List.of("task", "caizin", "Task1"))));
+        commands.execute(new CommandDescription(CommandType.SHOW, new Arguments(List.of())));
 
         String expected = "caizin\n[ ] 1: Task1\n";
         assertEquals(expected, writer.toString());
@@ -28,10 +28,10 @@ public class CommandsTest {
         StringWriter writer = new StringWriter();
 
         Commands commands = new Commands(writer);
-        commands.execute(new CommandDescription(CommandType.ADD, List.of("project", "caizin")));
-        commands.execute(new CommandDescription(CommandType.ADD, List.of("task", "caizin", "Task1")));
-        commands.execute(new CommandDescription(CommandType.CHECK, List.of("1")));
-        commands.execute(new CommandDescription(CommandType.SHOW, List.of()));
+        commands.execute(new CommandDescription(CommandType.ADD, new Arguments(List.of("project", "caizin"))));
+        commands.execute(new CommandDescription(CommandType.ADD, new Arguments(List.of("task", "caizin", "Task1"))));
+        commands.execute(new CommandDescription(CommandType.CHECK, new Arguments(List.of("1"))));
+        commands.execute(new CommandDescription(CommandType.SHOW, new Arguments(List.of())));
 
         String expected = "caizin\n[x] 1: Task1\n";
         assertEquals(expected, writer.toString());
@@ -42,11 +42,11 @@ public class CommandsTest {
         StringWriter writer = new StringWriter();
 
         Commands commands = new Commands(writer);
-        commands.execute(new CommandDescription(CommandType.ADD, List.of("project", "caizin")));
-        commands.execute(new CommandDescription(CommandType.ADD, List.of("task", "caizin", "Task1")));
-        commands.execute(new CommandDescription(CommandType.CHECK, List.of("1")));
-        commands.execute(new CommandDescription(CommandType.UNCHECK, List.of("1")));
-        commands.execute(new CommandDescription(CommandType.SHOW, List.of()));
+        commands.execute(new CommandDescription(CommandType.ADD, new Arguments(List.of("project", "caizin"))));
+        commands.execute(new CommandDescription(CommandType.ADD, new Arguments(List.of("task", "caizin", "Task1"))));
+        commands.execute(new CommandDescription(CommandType.CHECK, new Arguments(List.of("1"))));
+        commands.execute(new CommandDescription(CommandType.UNCHECK, new Arguments(List.of("1"))));
+        commands.execute(new CommandDescription(CommandType.SHOW, new Arguments(List.of())));
 
         String expected = "caizin\n[ ] 1: Task1\n";
         assertEquals(expected, writer.toString());

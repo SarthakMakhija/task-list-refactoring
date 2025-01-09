@@ -6,13 +6,13 @@ public class CommandDescription {
     private final CommandType commandType;
     private final Arguments arguments;
 
-    CommandDescription(String commandName, List<String> arguments) {
+    CommandDescription(String commandName, Arguments arguments) {
         this(CommandType.from(commandName), arguments);
     }
 
-    CommandDescription(CommandType commandType, List<String> arguments) {
+    CommandDescription(CommandType commandType, Arguments arguments) {
         this.commandType = commandType;
-        this.arguments = new Arguments(arguments);
+        this.arguments = arguments;
     }
 
     CommandType commandType() {
