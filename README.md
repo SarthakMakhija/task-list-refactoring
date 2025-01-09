@@ -3,7 +3,7 @@
 
 ### Idea
 
-The idea of this repository is to refactor the slightly modified [TaskList](https://kata-log.rocks/task-list-kata). The refactored code takes care of a lot of smells in the original code including:
+This repository aims to refactor a slightly modified version of [TaskList](https://kata-log.rocks/task-list-kata). The refactored code addresses numerous code smells present in the original implementation, including:
 
 - [Broken Encapsulation](https://refactoring.guru/smells/inappropriate-intimacy)
 - [Data classes](https://refactoring.guru/smells/data-class)
