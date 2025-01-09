@@ -2,15 +2,12 @@ package com.codurance.training.tasks;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 class Tasks extends ArrayList<Task> {
 
     String format() {
-        StringBuilder formatted = new StringBuilder();
-        for (Task task : this) {
-            formatted.append(task.format());
-        }
-        return formatted.toString();
+        return this.stream().map(Task::format).collect(Collectors.joining());
     }
 
     boolean markTaskWithIdDone(int id) {
