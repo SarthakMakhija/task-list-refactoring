@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CommandDescription {
     private final CommandType commandType;
-    private final List<String> arguments;
+    private final Arguments arguments;
 
     CommandDescription(String commandName, List<String> arguments) {
         this(CommandType.from(commandName), arguments);
@@ -12,7 +12,7 @@ public class CommandDescription {
 
     CommandDescription(CommandType commandType, List<String> arguments) {
         this.commandType = commandType;
-        this.arguments = arguments;
+        this.arguments = new Arguments(arguments);
     }
 
     CommandType commandType() {
@@ -20,6 +20,6 @@ public class CommandDescription {
     }
 
     List<String> arguments() {
-        return arguments;
+        return arguments.arguments;
     }
 }
