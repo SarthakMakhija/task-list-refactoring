@@ -1,6 +1,6 @@
 package com.codurance.training.commands;
 
-public enum CommandType {
+enum CommandType {
     ADD_PROJECT("add_project"), ADD_TASK("add_task"), SHOW("show"), CHECK("check"), UNCHECK("uncheck");
 
     private final String commandName;
@@ -9,7 +9,7 @@ public enum CommandType {
         this.commandName = commandName;
     }
 
-    public static CommandType from(String commandName) {
+    static CommandType from(String commandName) {
         for (CommandType type : CommandType.values()) {
             if (type.commandName.equalsIgnoreCase(commandName)) {
                 return type;
