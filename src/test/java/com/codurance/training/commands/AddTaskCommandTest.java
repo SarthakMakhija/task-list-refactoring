@@ -11,11 +11,19 @@ import static org.junit.Assert.assertThrows;
 public class AddTaskCommandTest {
 
     @Test
-    public void attemptToExecuteAddTaskCommand() {
+    public void attemptToExecuteAddTaskCommandGivenNoArgumentsAreProvided() {
         Projects projects = new Projects();
 
         AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
         assertThrows(AssertionError.class, () -> addTaskCommand.execute(new Arguments(List.of())));
+    }
+
+    @Test
+    public void attemptToExecuteAddTaskCommandGivenOnlyOneArgumentIsProvided() {
+        Projects projects = new Projects();
+
+        AddTaskCommand addTaskCommand = new AddTaskCommand(projects);
+        assertThrows(AssertionError.class, () -> addTaskCommand.execute(new Arguments(List.of("caizin"))));
     }
 
     @Test

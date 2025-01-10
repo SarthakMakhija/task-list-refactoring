@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThrows;
 public class AddProjectCommandTest {
 
     @Test
-    public void attemptToExecuteAddProjectCommand() {
+    public void attemptToExecuteAddProjectCommandGivenNoArgumentsAreProvided() {
         Projects projects = new Projects();
 
         AddProjectCommand addProjectCommand = new AddProjectCommand(projects);
