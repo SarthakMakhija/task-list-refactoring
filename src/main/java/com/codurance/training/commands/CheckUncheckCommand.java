@@ -19,6 +19,7 @@ class UncheckCommand implements Command {
         this.nonExistingTaskId = nonExistingTaskId;
     }
 
+    @Override
     public void execute(Arguments arguments) throws Exception {
         assert (arguments.size() == 1);
         if (projects.markTaskWithIdNotDone(arguments.argumentAtIndexAsInt(0))) return;
@@ -41,6 +42,7 @@ class CheckCommand implements Command {
         this.nonExistingTaskId = nonExistingTaskId;
     }
 
+    @Override
     public void execute(Arguments arguments) throws Exception {
         assert (arguments.size() == 1);
         if (projects.markTaskWithIdDone(arguments.argumentAtIndexAsInt(0))) return;

@@ -9,6 +9,7 @@ class AddProjectCommand implements Command {
         this.projects = projects;
     }
 
+    @Override
     public void execute(Arguments arguments)  {
         assert (arguments.size() == 1);
         String projectName = arguments.get(0);

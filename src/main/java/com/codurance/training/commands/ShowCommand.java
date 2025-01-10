@@ -13,6 +13,7 @@ class ShowCommand implements Command {
         this.projects = projects;
     }
 
+    @Override
     public void execute(Arguments arguments) throws Exception {
         assert (arguments.isEmpty());
         this.writer.write(this.projects.format());
