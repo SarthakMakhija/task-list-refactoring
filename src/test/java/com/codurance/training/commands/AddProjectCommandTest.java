@@ -19,7 +19,7 @@ public class AddProjectCommandTest {
     }
 
     @Test
-    public void executeAddProjectCommandByAddingAProject() throws Exception {
+    public void executeAddProjectCommandByAddingAProject() {
         Projects projects = new Projects();
 
         AddProjectCommand addProjectCommand = new AddProjectCommand(projects);

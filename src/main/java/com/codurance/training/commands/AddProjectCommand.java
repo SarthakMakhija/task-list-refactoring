@@ -9,7 +9,7 @@ class AddProjectCommand implements Command {
         this.projects = projects;
     }
 
-    public void execute(Arguments arguments) throws Exception {
+    public void execute(Arguments arguments)  {
         assert (arguments.size() == 1);
         String projectName = arguments.get(0);
         projects.addProject(projectName);

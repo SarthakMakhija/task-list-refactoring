@@ -11,7 +11,7 @@ class AddTaskCommand implements Command {
         this.projects = projects;
     }
 
-    public void execute(Arguments arguments) throws Exception {
+    public void execute(Arguments arguments) {
         assert (arguments.size() == 2);
         String projectName = arguments.get(0);
         String taskDescription = arguments.get(1);

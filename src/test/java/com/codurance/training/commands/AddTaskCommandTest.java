@@ -27,7 +27,7 @@ public class AddTaskCommandTest {
     }
 
     @Test
-    public void executeCheckCommandByAddingATaskToAProject() throws Exception {
+    public void executeCheckCommandByAddingATaskToAProject() {
         Projects projects = new Projects();
         projects.addProject("caizin");
 
