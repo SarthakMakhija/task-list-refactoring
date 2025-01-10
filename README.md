@@ -6,7 +6,7 @@
 This repository aims to refactor a slightly modified version of [TaskList](https://kata-log.rocks/task-list-kata) for teaching refactoring. 
 The refactored code addresses numerous code smells present in the original implementation, including:
 
-- [Broken Encapsulation](https://refactoring.guru/smells/inappropriate-intimacy)
+- [Broken encapsulation](https://refactoring.guru/smells/inappropriate-intimacy)
 - [Data classes](https://refactoring.guru/smells/data-class)
 - [Divergent change](https://refactoring.guru/smells/divergent-change)
 - [Feature envy](https://refactoring.guru/smells/feature-envy)
@@ -23,9 +23,9 @@ The following refactoring techniques were used:
 - [Extract method](https://refactoring.guru/extract-method)
 - [Replace temp with query](https://refactoring.guru/replace-temp-with-query)
 - [Move method](https://refactoring.guru/move-method)
-- [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-- [Extract Interface](https://refactoring.guru/extract-interface)
-- [Rename Method](https://refactoring.guru/rename-method)
+- [Introduce local extension](https://refactoring.guru/introduce-local-extension)
+- [Extract interface](https://refactoring.guru/extract-interface)
+- [Rename method](https://refactoring.guru/rename-method)
 - [Introduce assertion](https://refactoring.guru/introduce-assertion)
 
 ### What is not covered
