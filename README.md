@@ -20,12 +20,13 @@ The code to refactor is available [here](https://github.com/SarthakMakhija/task-
 
 The following refactoring techniques were used:
 
-- [Extract method](https://refactoring.guru/extract-method)
-- [Replace temp with query](https://refactoring.guru/replace-temp-with-query)
 - [Move method](https://refactoring.guru/move-method)
-- [Introduce local extension](https://refactoring.guru/introduce-local-extension)
-- [Extract interface](https://refactoring.guru/extract-interface)
+- [Replace temp with query](https://refactoring.guru/replace-temp-with-query)
 - [Rename method](https://refactoring.guru/rename-method)
+- [Extract method](https://refactoring.guru/extract-method)
+- [Extract interface](https://refactoring.guru/extract-interface)
+- [Replace data value with object](https://refactoring.guru/replace-data-value-with-object)
+- [Introduce local extension](https://refactoring.guru/introduce-local-extension)
 - [Introduce assertion](https://refactoring.guru/introduce-assertion)
 
 ### What is not covered
