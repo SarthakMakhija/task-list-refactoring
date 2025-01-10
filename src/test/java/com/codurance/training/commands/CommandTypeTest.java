@@ -25,4 +25,9 @@ public class CommandTypeTest {
     public void createCommandTypeForAddCommand() {
         assertEquals(CommandType.ADD, CommandType.from("add"));
     }
+
+    @Test
+    public void attemptToCreateCommandTypeForAnUnknownCommand() {
+        assertThrows(IllegalArgumentException.class, () ->  CommandType.from("unknown"));
+    }
 }
