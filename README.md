@@ -11,6 +11,7 @@ The refactored code addresses numerous code smells present in the original imple
 - [Divergent change](https://refactoring.guru/smells/divergent-change)
 - [Feature envy](https://refactoring.guru/smells/feature-envy)
 - [Long method](https://refactoring.guru/smells/long-method)
+- [Duplicate code](https://refactoring.guru/smells/duplicate-code)
 - [Switch statements](https://refactoring.guru/smells/switch-statements)
 - [Primitive obsession](https://refactoring.guru/smells/primitive-obsession)
 
