@@ -1,5 +1,5 @@
 # task-list-refactoring
-[![TaskListRefactoring](https://github.com/SarthakMakhija/task-list-refactoring/actions/workflows/build.yml/badge.svg)](https://github.com/SarthakMakhija/task-list-refactoring/actions/workflows/build.yml)
+[![TaskListRefactoring](https://github.com/SarthakMakhija/task-list-refactoring/actions/workflows/build.yml/badge.svg)](https://github.com/SarthakMakhija/task-list-refactoring/actions/workflows/build.yml) [![codecov](https://codecov.io/github/SarthakMakhija/task-list-refactoring/graph/badge.svg?token=AM6SNUNZOY)](https://codecov.io/github/SarthakMakhija/task-list-refactoring)
 
 ### Idea
 
