@@ -27,7 +27,7 @@ public class ShowCommandTest {
 
         Projects projects = new Projects();
         projects.addProject("caizin");
-        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(1, "Task 1"));
 
         ShowCommand command = new ShowCommand(writer, projects);
         command.execute(new Arguments(List.of()));
@@ -42,8 +42,8 @@ public class ShowCommandTest {
 
         Projects projects = new Projects();
         projects.addProject("caizin");
-        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
-        projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", false));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(1, "Task 1"));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(2, "Task 2"));
 
         ShowCommand command = new ShowCommand(writer, projects);
         command.execute(new Arguments(List.of()));
@@ -58,8 +58,9 @@ public class ShowCommandTest {
 
         Projects projects = new Projects();
         projects.addProject("caizin");
-        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
-        projects.addTaskToProjectWithName("caizin", new Task(2, "Task 2", true));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(1, "Task 1"));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(2, "Task 2"));
+        projects.markTaskWithIdDone(2);
 
         ShowCommand command = new ShowCommand(writer, projects);
         command.execute(new Arguments(List.of()));

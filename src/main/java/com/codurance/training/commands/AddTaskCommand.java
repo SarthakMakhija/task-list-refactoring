@@ -18,6 +18,6 @@ class AddTaskCommand implements Command {
         String taskDescription = arguments.argumentAtIndexAsString(1);
 
         this.lastTaskId = this.lastTaskId + 1;
-        projects.addTaskToProjectWithName(projectName, new Task(this.lastTaskId, taskDescription, false));
+        projects.addTaskToProjectWithName(projectName, Task.newTask(this.lastTaskId, taskDescription));
     }
 }

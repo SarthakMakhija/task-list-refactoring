@@ -38,7 +38,7 @@ public class CheckUncheckCommandTest {
 
         Projects projects = new Projects();
         projects.addProject("caizin");
-        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(1, "Task 1"));
 
         UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
         uncheckCommand.execute(new Arguments(List.of("1")));
@@ -73,7 +73,7 @@ public class CheckUncheckCommandTest {
 
         Projects projects = new Projects();
         projects.addProject("caizin");
-        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", false));
+        projects.addTaskToProjectWithName("caizin", Task.newTask(1, "Task 1"));
 
         CheckCommand checkCommand = new CheckCommand(writer, projects);
         checkCommand.execute(new Arguments(List.of("1")));
