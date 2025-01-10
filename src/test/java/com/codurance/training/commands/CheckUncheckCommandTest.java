@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class CheckCommandTest {
+public class CheckUncheckCommandTest {
 
     @Test
     public void attemptToExecuteCheckTaskCommand() {
@@ -33,6 +33,30 @@ public class CheckCommandTest {
         checkCommand.execute(new Arguments(List.of("1")));
 
         String expected = "caizin\n" + "[x] 1: Task 1\n";
+        assertEquals(expected, projects.format());
+    }
+
+    @Test
+    public void attemptToExecuteUncheckTaskCommand() {
+        StringWriter writer = new StringWriter();
+        Projects projects = new Projects();
+
+        UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
+        assertThrows(AssertionError.class, () -> uncheckCommand.execute(new Arguments(List.of())));
+    }
+
+    @Test
+    public void executeUncheckCommandByUncheckingATask() throws Exception {
+        StringWriter writer = new StringWriter();
+
+        Projects projects = new Projects();
+        projects.addProject("caizin");
+        projects.addTaskToProjectWithName("caizin", new Task(1, "Task 1", true));
+
+        UncheckCommand uncheckCommand = new UncheckCommand(writer, projects);
+        uncheckCommand.execute(new Arguments(List.of("1")));
+
+        String expected = "caizin\n" + "[ ] 1: Task 1\n";
         assertEquals(expected, projects.format());
     }
 }

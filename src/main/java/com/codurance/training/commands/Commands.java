@@ -10,6 +10,7 @@ interface Command {
     void execute(Arguments arguments) throws Exception;
 }
 
+
 public class Commands {
     private final Map<CommandType, Command> commandByType = new HashMap<>();
 
