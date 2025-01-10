@@ -14,7 +14,7 @@ The refactored code addresses numerous code smells present in the original imple
 - [Switch statements](https://refactoring.guru/smells/switch-statements)
 - [Primitive obsession](https://refactoring.guru/smells/primitive-obsession)
 
-The original code is available [here](https://github.com/SarthakMakhija/task-list-refactoring/tree/original).
+The code to refactor is available [here](https://github.com/SarthakMakhija/task-list-refactoring/tree/original).
 
 ### Refactoring techniques used
 
