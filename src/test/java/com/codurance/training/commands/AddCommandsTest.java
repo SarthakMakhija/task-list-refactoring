@@ -6,8 +6,17 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class AddCommandsTest {
+
+    @Test
+    public void attemptToExecuteCommandByProvidingAnUnsupportedAddCommand() {
+        Projects projects = new Projects();
+
+        AddCommands addCommands = new AddCommands(projects);
+        assertThrows(IllegalArgumentException.class, () -> addCommands.execute(new Arguments(List.of("unsupported", "caizin"))));
+    }
 
     @Test
     public void executeAddProject() throws Exception {
