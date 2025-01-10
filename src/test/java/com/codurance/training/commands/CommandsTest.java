@@ -5,9 +5,19 @@ import org.junit.Test;
 import java.io.StringWriter;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class CommandsTest {
+
+    @Test
+    public void attemptToExecuteAnUnsupportedCommand() {
+        StringWriter writer = new StringWriter();
+
+        Commands commands = new Commands(writer);
+        assertThrows(IllegalArgumentException.class,
+                () -> commands.execute(new CommandDescription("unsupported", new Arguments(List.of("project", "caizin")))));
+    }
 
     @Test
     public void executeAddTaskInAProjectFollowedByShow() throws Exception {
