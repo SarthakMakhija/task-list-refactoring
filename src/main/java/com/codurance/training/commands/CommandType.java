@@ -1,5 +1,7 @@
 package com.codurance.training.commands;
 
+import java.util.Arrays;
+
 enum CommandType {
     ADD("add"), SHOW("show"), CHECK("check"), UNCHECK("uncheck");
 
@@ -10,11 +12,10 @@ enum CommandType {
     }
 
     static CommandType from(String commandName) {
-        for (CommandType type : CommandType.values()) {
-            if (type.commandName.equalsIgnoreCase(commandName)) {
-                return type;
-            }
-        }
-        throw new IllegalArgumentException("Unknown command: " + commandName);
+        return Arrays
+                .stream(CommandType.values())
+                .filter(commandType -> commandType.commandName.equalsIgnoreCase(commandName))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Unknown command type: " + commandName));
     }
 }
