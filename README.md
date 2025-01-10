@@ -29,6 +29,7 @@ The following refactoring techniques were used:
 - [Replace data value with object](https://refactoring.guru/replace-data-value-with-object)
 - [Introduce local extension](https://refactoring.guru/introduce-local-extension)
 - [Introduce assertion](https://refactoring.guru/introduce-assertion)
+- [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
 
 ### What is not covered
 
