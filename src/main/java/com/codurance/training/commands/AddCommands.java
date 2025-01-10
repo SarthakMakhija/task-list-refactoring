@@ -15,9 +15,9 @@ public class AddCommands implements Command {
 
     @Override
     public void execute(Arguments arguments) throws Exception {
-        Command command = this.commandBySubCommand.get(arguments.get(0));
+        Command command = this.commandBySubCommand.get(arguments.argumentAtIndexAsString(0));
         if (command == null) {
-            throw new IllegalArgumentException("Unknown command: " + arguments.get(0));
+            throw new IllegalArgumentException("Unknown command: " + arguments.argumentAtIndexAsString(0));
         }
         command.execute(arguments.skipOne());
     }

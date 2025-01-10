@@ -11,8 +11,8 @@ class AddProjectCommand implements Command {
 
     @Override
     public void execute(Arguments arguments)  {
-        assert (arguments.size() == 1);
-        String projectName = arguments.get(0);
+        assert (arguments.count() == 1);
+        String projectName = arguments.argumentAtIndexAsString(0);
         projects.addProject(projectName);
     }
 }

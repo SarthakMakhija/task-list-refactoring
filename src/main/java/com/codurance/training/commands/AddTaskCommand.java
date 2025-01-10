@@ -13,9 +13,9 @@ class AddTaskCommand implements Command {
 
     @Override
     public void execute(Arguments arguments) {
-        assert (arguments.size() == 2);
-        String projectName = arguments.get(0);
-        String taskDescription = arguments.get(1);
+        assert (arguments.count() == 2);
+        String projectName = arguments.argumentAtIndexAsString(0);
+        String taskDescription = arguments.argumentAtIndexAsString(1);
 
         this.lastTaskId = this.lastTaskId + 1;
         projects.addTaskToProjectWithName(projectName, new Task(this.lastTaskId, taskDescription, false));

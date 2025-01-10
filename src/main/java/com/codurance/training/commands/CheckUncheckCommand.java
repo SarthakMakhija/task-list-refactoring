@@ -21,7 +21,7 @@ class UncheckCommand implements Command {
 
     @Override
     public void execute(Arguments arguments) throws Exception {
-        assert (arguments.size() == 1);
+        assert (arguments.count() == 1);
         if (projects.markTaskWithIdNotDone(arguments.argumentAtIndexAsInt(0))) return;
         writer.write(nonExistingTaskId.errorMessage(arguments.argumentAtIndexAsInt(0)));
     }
@@ -44,7 +44,7 @@ class CheckCommand implements Command {
 
     @Override
     public void execute(Arguments arguments) throws Exception {
-        assert (arguments.size() == 1);
+        assert (arguments.count() == 1);
         if (projects.markTaskWithIdDone(arguments.argumentAtIndexAsInt(0))) return;
         writer.write(nonExistingTaskId.errorMessage(arguments.argumentAtIndexAsInt(0)));
     }

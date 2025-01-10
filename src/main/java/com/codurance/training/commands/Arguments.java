@@ -34,4 +34,16 @@ public class Arguments extends ArrayList<String> {
     int argumentAtIndexAsInt(int index) {
         return Integer.parseInt(this.get(index));
     }
+
+    String argumentAtIndexAsString(int index) {
+        return get(index);
+    }
+
+    int count() {
+        return size();
+    }
+
+    boolean hasAny() {
+        return size() == 0;
+    }
 }
