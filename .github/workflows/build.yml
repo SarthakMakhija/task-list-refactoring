@@ -31,3 +31,9 @@ jobs:
         path: |
           ${{ github.workspace }}/target/site/jacoco/jacoco.xml
           ${{ github.workspace }}/target/site/jacoco/index.html
+          
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
