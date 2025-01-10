@@ -15,7 +15,7 @@ class ShowCommand implements Command {
 
     @Override
     public void execute(Arguments arguments) throws Exception {
-        assert (arguments.hasAny());
+        assert (arguments.isEmpty());
         this.writer.write(this.projects.format());
     }
 }

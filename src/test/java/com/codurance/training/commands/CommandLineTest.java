@@ -22,7 +22,7 @@ public class CommandLineTest {
         CommandDescription commandDescription = commandLine.parse();
 
         assertEquals(CommandType.CHECK, commandDescription.commandType());
-        assertEquals(List.of("100"), commandDescription.arguments());
+        assertEquals("100", commandDescription.arguments().argumentAtIndexAsString(0));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class CommandLineTest {
         CommandDescription commandDescription = commandLine.parse();
 
         assertEquals(CommandType.UNCHECK, commandDescription.commandType());
-        assertEquals(List.of("100"), commandDescription.arguments());
+        assertEquals("100", commandDescription.arguments().argumentAtIndexAsString(0));
     }
 
     @Test
@@ -40,7 +40,8 @@ public class CommandLineTest {
         CommandDescription commandDescription = commandLine.parse();
 
         assertEquals(CommandType.ADD, commandDescription.commandType());
-        assertEquals(List.of("project", "caizin"), commandDescription.arguments());
+        assertEquals("project", commandDescription.arguments().argumentAtIndexAsString(0));
+        assertEquals("caizin", commandDescription.arguments().argumentAtIndexAsString(1));
     }
 
     @Test
@@ -49,6 +50,8 @@ public class CommandLineTest {
         CommandDescription commandDescription = commandLine.parse();
 
         assertEquals(CommandType.ADD, commandDescription.commandType());
-        assertEquals(List.of("task", "caizin", "200"), commandDescription.arguments());
+        assertEquals("task", commandDescription.arguments().argumentAtIndexAsString(0));
+        assertEquals("caizin", commandDescription.arguments().argumentAtIndexAsString(1));
+        assertEquals("200", commandDescription.arguments().argumentAtIndexAsString(2));
     }
 }

@@ -1,20 +1,12 @@
 package com.codurance.training.commands;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * The class `Arguments` is showing signs of both mutability and immutability.
- * Signs of mutability:
- *  - Arguments extends from ArrayList<String> which is mutable.
- *  - The method `skipOne` creates a new instance of Arguments, which means the author does not want to change the existing collection.
- *  An instance of Arguments is passed to all the Commands. Given, Arguments extends from ArrayList<String>, it gives all the commands
- *  the authority to mutate arguments.
- *  Technically, Arguments should never be mutated once created.
- */
-public class Arguments extends ArrayList<String> {
+public class Arguments {
+
+    private final List<String> arguments;
 
     static Arguments skipOneAndCreate(String[] parts) {
         if (parts == null) {
@@ -24,26 +16,26 @@ public class Arguments extends ArrayList<String> {
     }
 
     Arguments(List<String> arguments) {
-        this.addAll(arguments);
+        this.arguments = arguments;
     }
 
     Arguments skipOne() {
-        return new Arguments(this.subList(1, this.size()));
+        return new Arguments(this.arguments.subList(1, this.count()));
     }
 
     int argumentAtIndexAsInt(int index) {
-        return Integer.parseInt(this.get(index));
+        return Integer.parseInt(this.arguments.get(index));
     }
 
     String argumentAtIndexAsString(int index) {
-        return get(index);
+        return this.arguments.get(index);
     }
 
     int count() {
-        return size();
+        return this.arguments.size();
     }
 
-    boolean hasAny() {
-        return size() == 0;
+    boolean isEmpty() {
+        return this.arguments.isEmpty();
     }
 }
