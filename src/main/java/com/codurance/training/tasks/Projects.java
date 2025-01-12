@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 
 public class Projects  {
 
-    private final Map<String, Project> projects = new LinkedHashMap<>();
+    private final Map<String, Project> projectByName = new LinkedHashMap<>();
 
     public void addProject(String name) {
-        this.projects.put(name, new Project(name));
+        this.projectByName.put(name, new Project(name));
     }
 
     public void addTaskToProjectWithName(String projectName, Task task) {
-        Project project = this.projects.get(projectName);
+        Project project = this.projectByName.get(projectName);
         if (project == null) {
             throw new IllegalArgumentException("Unknown project: " + projectName);
         }
@@ -21,15 +21,15 @@ public class Projects  {
     }
 
     public boolean markTaskWithIdDone(int id) {
-        return this.projects.values().stream().anyMatch((Project project) -> project.markTaskWithIdDone(id));
+        return this.projectByName.values().stream().anyMatch((Project project) -> project.markTaskWithIdDone(id));
     }
 
     public boolean markTaskWithIdNotDone(int id) {
-        return this.projects.values().stream().anyMatch((Project project) -> project.markTaskWithIdNotDone(id));
+        return this.projectByName.values().stream().anyMatch((Project project) -> project.markTaskWithIdNotDone(id));
     }
 
     public String format() {
-        return this.projects.values().stream().map(Project::format).collect(Collectors.joining());
+        return this.projectByName.values().stream().map(Project::format).collect(Collectors.joining());
     }
 }
 
