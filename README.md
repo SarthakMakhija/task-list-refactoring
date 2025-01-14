@@ -35,3 +35,5 @@ The following refactoring techniques were used:
 
 - This repository does not implement any feature mentioned in the original [TaskList](https://github.com/codurance/task-list/) repository.
 - This repository does not implement solitary unit-tests. All the unit-tests are sociable.
+
+I published an article titled "Refactoring Mindset" - a deliberate and proactive approach to consistently improve your code. The article is available [here](https://tech-lessons.in/en/blog/refactoring_mindset/).
