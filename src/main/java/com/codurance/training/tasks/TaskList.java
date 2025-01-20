@@ -11,7 +11,7 @@ import static java.lang.System.out;
 
 public final class TaskList {
 
-    private final Map<String, List<Task>> projects = new LinkedHashMap<>();
+    private final Map<String, List<Task>> tasks = new LinkedHashMap<>();
     private final Writer writer;
     private long lastId = 0;
 
@@ -41,7 +41,7 @@ public final class TaskList {
     }
 
     private void show() throws IOException {
-        for (Map.Entry<String, List<com.codurance.training.tasks.Task>> project : projects.entrySet()) {
+        for (Map.Entry<String, List<com.codurance.training.tasks.Task>> project : tasks.entrySet()) {
             writer.write(project.getKey());
             writer.write("\n");
             for (com.codurance.training.tasks.Task task : project.getValue()) {
@@ -62,11 +62,11 @@ public final class TaskList {
     }
 
     private void addProject(String name) {
-        projects.put(name, new ArrayList<>());
+        tasks.put(name, new ArrayList<>());
     }
 
     private void addTask(String project, String description) {
-        List<com.codurance.training.tasks.Task> projectTasks = projects.get(project);
+        List<com.codurance.training.tasks.Task> projectTasks = tasks.get(project);
         if (projectTasks == null) {
             throw new IllegalArgumentException("Unknown project: " + project);
         }
@@ -83,7 +83,7 @@ public final class TaskList {
 
     private void setDone(String idString, boolean done) {
         int id = Integer.parseInt(idString);
-        for (Map.Entry<String, List<com.codurance.training.tasks.Task>> project : projects.entrySet()) {
+        for (Map.Entry<String, List<com.codurance.training.tasks.Task>> project : tasks.entrySet()) {
             for (com.codurance.training.tasks.Task task : project.getValue()) {
                 if (task.getId() == id) {
                     task.setDone(done);
